@@ -24,7 +24,7 @@
 </head>
 <body>
 <div class="container">
-    <header><h1>Astra Suli Büfé</h1><p>Add le rendelésed egyszerűen!</p></header>
+    <header><h1>Dobó Suli Büfé</h1><p>Add le rendelésed egyszerűen!</p></header>
     <div class="diak-infok">
         <h3>1. Lépés: Ki vagy te?</h3>
         <div class="input-group"><label>Teljes név</label><input type="text" id="diakNev" placeholder="Pl. Kiss Gábor"></div>
@@ -58,7 +58,7 @@
             <div class="kategoria-cim">Ital</div><div class="etal-kartya"><div><h4>Gyümölcs Tea</h4><p>Citrommal</p></div><button class="hozzaad-gomb" onclick="kb(this,'Szerda','Gyümölcs Tea')">Kérem</button></div>
         </div>
         <div class="nap-szekcio">
-            <div class="nap-cim">Csütörtök</div>
+            <div class="navigate-cim">Csütörtök</div>
             <div class="kategoria-cim">Leves</div><div class="etal-kartya"><div><h4>Zöldségleves</h4><p>Friss zöldségekből</p></div><button class="hozzaad-gomb" onclick="kb(this,'Csütörtök','Zöldségleves')">Kérem</button></div>
             <div class="kategoria-cim">Főétel</div><div class="etal-kartya"><div><h4>Rakott burgonya</h4><p>Kolbásszal, tojással</p></div><button class="hozzaad-gomb" onclick="kb(this,'Csütörtök','Rakott burgonya')">Kérem</button></div>
             <div class="kategoria-cim">Desszert</div><div class="etal-kartya"><div><h4>Túró Rudi</h4><p>Óriás natúr</p></div><button class="hozzaad-gomb" onclick="kb(this,'Csütörtök','Túró Rudi')">Kérem</button></div>
@@ -76,6 +76,7 @@
 <div class="felugro-kosar"><div>Kiválasztva: <span id="kd">0</span> db</div><button class="veglegesit-gomb" id="bg" onclick="kl()">Rendelés véglegesítése</button></div>
 <script>
     let kosar = { 'Hétfő':[], 'Kedd':[], 'Szerda':[], 'Csütörtök':[], 'Péntek':[] }; let dbSzam = 0;
+    // Ide illesztettem be a te pontos, működő Google linkedet:
     const URL = "https://script.google.com/macros/s/AKfycbwHUICIYUxhhJ-gn0Ju44LahL5-_4uByeGGLnBptUcDlkzq14ChMrXUjoP2e7pGHalP/exec";
     
     function kb(gomb, nap, etel) {
@@ -88,6 +89,7 @@
         }
         document.getElementById('kd').innerText = dbSzam;
     }
+
     function kl() {
         const n = document.getElementById('diakNev').value, e = document.getElementById('diakEmail').value, ev = document.getElementById('diakEvfolyam').value, b = document.getElementById('diakBetujel').value, g = document.getElementById('bg');
         if(!n || !e || !ev || !b) { alert('Tölts ki minden adatot!'); return; } if(dbSzam === 0) { alert('Üres a kosarad!'); return; }
@@ -95,12 +97,21 @@
         
         const payload = { nev: n, email: e, osztaly: ev + "." + b, hetfo: kosar['Hétfő'].join(", "), kedd: kosar['Kedd'].join(", "), szerda: kosar['Szerda'].join(", "), csutortok: kosar['Csütörtök'].join(", "), pentek: kosar['Péntek'].join(", ") };
         
-        fetch(URL, { method: "POST", mode: "no-cors", body: JSON.stringify(payload) }).then(() => {
-            alert('Sikeres rendelés!');
-            kosar = { 'Hétfő':[], 'Kedd':[], 'Szerda':[], 'Csütörtök':[], 'Péntek':[] }; dbSzam = 0;
-            document.getElementById('kd').innerText = 0;
-            document.querySelectorAll('.hozzaad-gomb').forEach(btn => { btn.style.background = "#FFFFFF"; btn.style.color = "#606C38"; btn.innerText = "Kérem"; });
-            g.innerText = "Rendelés véglegesítése"; g.disabled = false;
+        fetch(URL, { method: "POST", body: JSON.stringify(payload) })
+        .then(res => res.text())
+        .then(text => {
+            // Ha a Google háttérkód azt küldi vissza, hogy "Hiba:", akkor azt írjuk ki alert ablakban
+            if (text.trim().startsWith("Hiba:")) { 
+                alert(text); 
+                g.innerText = "Rendelés véglegesítése"; g.disabled = false;
+            } else { 
+                alert('Sikeres rendelés!'); 
+                location.reload(); 
+            }
+        })
+        .catch(() => { 
+            alert('Hiba történt a küldés során, de a rendelés valószínűleg elment. Ellenőrizzétek a táblázatot!'); 
+            g.innerText = "Rendelés véglegesítése"; g.disabled = false; 
         });
     }
 </script>
