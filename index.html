@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -15,11 +14,10 @@
 :root {
     --bordo: #833a3a;
     --grafit: #333333;
-    --hatter: #e3e2e2;
+    --vilagos: #e3e2e2;
     --feher: #ffffff;
     --kartya: #f5f5f5;
-    --keret: #cccccc;
-    --szurke: #777777;
+    --szurke: #cccccc;
 }
 
 * {
@@ -29,77 +27,56 @@
 body {
     margin: 0;
     padding: 20px;
-    padding-bottom: 100px;
-    background: var(--hatter);
+    padding-bottom: 110px;
+    background: var(--vilagos);
     color: var(--grafit);
-    font-family: "Fjalla One", sans-serif;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 .container {
-    width: 100%;
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
 }
 
-/* =========================
-   FEJLÉC
-========================= */
-
 header {
+    background: var(--bordo);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
-
-    padding: 15px;
-    margin-bottom: 20px;
-
-    background: var(--bordo);
-    border-radius: 12px;
 }
 
 header img {
-    height: 90px;
     width: auto;
+    height: 80px;
 }
 
 header h1 {
     margin: 0;
-
     color: white;
-    font-family: "Anton", sans-serif;
-    font-size: 26px;
-    font-weight: normal;
-
+    font-family: 'Anton', sans-serif;
+    font-size: 27px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* =========================
-   ADATOK
-========================= */
-
-.diak-infok {
-    padding: 15px;
-    margin-bottom: 20px;
-
+.doboz {
     background: white;
-
-    border: 1px solid #d1c7bd;
-    border-left: 6px solid var(--grafit);
+    padding: 18px;
+    margin-bottom: 20px;
     border-radius: 12px;
-
-    box-shadow: 0 4px 6px rgba(0,0,0,.03);
+    border: 1px solid #d1c7bd;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.04);
 }
 
-h3 {
-    margin-top: 0;
-
-    font-family: "Anton", sans-serif;
-    font-size: 22px;
-    font-weight: normal;
-
-    text-transform: uppercase;
+.doboz h2 {
+    margin: 0 0 18px;
+    font-family: 'Anton', sans-serif;
+    font-size: 23px;
 }
 
 .input-group {
@@ -108,259 +85,210 @@ h3 {
 
 .input-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
-.input-group label span {
+.kotelezo {
     color: var(--bordo);
     font-weight: bold;
 }
 
-.input-group input,
-.input-group select {
+input[type="text"],
+input[type="email"],
+select {
     width: 100%;
-    padding: 10px;
-
+    padding: 11px;
+    border: 1px solid var(--szurke);
+    border-radius: 7px;
     background: white;
     color: var(--grafit);
-
-    border: 1px solid var(--keret);
-    border-radius: 6px;
-
-    font-family: "Fjalla One", sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     font-size: 15px;
 }
 
-.input-group.inline {
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 9px;
+}
+
+.tanar-sor {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.input-group.inline input {
-    width: auto;
-    margin: 0;
-    transform: scale(1.2);
-}
-
-.input-group.inline label {
-    margin: 0;
-    cursor: pointer;
+    margin-bottom: 18px;
 }
 
 .osztaly-sor {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 
-.osztaly-sor .input-group {
-    flex: 1;
-}
-
-/* =========================
-   NAPOK
-========================= */
-
-.nap-szekcio {
-    padding: 15px;
-    margin-bottom: 20px;
-
+.nap {
     background: white;
-
-    border: 1px solid #d1c7bd;
-    border-left: 6px solid var(--grafit);
+    padding: 15px;
+    margin-bottom: 18px;
     border-radius: 12px;
-
-    box-shadow: 0 4px 6px rgba(0,0,0,.03);
+    border-left: 6px solid var(--bordo);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.04);
 }
 
-.nap-szekcio.bordo {
-    border-left-color: var(--bordo);
+.nap.grafit {
+    border-left-color: var(--grafit);
 }
 
 .nap-cim {
     margin-bottom: 15px;
-
-    font-family: "Anton", sans-serif;
-    font-size: 24px;
-    font-weight: normal;
-
-    text-transform: uppercase;
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
 }
 
-.nap-szekcio.bordo .nap-cim {
+.nap.bordo .nap-cim {
     color: var(--bordo);
 }
 
-.kategoria-cim {
-    margin: 15px 0 5px;
-
-    color: var(--szurke);
-
+.kategoria {
+    margin: 15px 0 6px;
+    color: #777;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: .5px;
 }
 
-/* =========================
-   ÉTEL
-========================= */
+.etel {
+    background: var(--kartya);
+    border: 1px solid var(--szurke);
+    border-radius: 8px;
+    padding: 11px;
 
-.etal-kartya {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 10px;
 
-    padding: 12px;
-    margin-bottom: 10px;
-
-    background: var(--kartya);
-
-    border: 1px solid var(--keret);
-    border-radius: 8px;
+    margin-bottom: 9px;
 }
 
-.etal-kartya h4 {
-    margin: 0 0 3px;
+.etel-nev {
+    min-width: 0;
+}
 
+.etel-nev h4 {
+    margin: 0 0 3px;
     font-size: 16px;
     font-weight: normal;
 }
 
-.etal-kartya p {
+.etel-nev p {
     margin: 0;
-
     color: #666;
     font-size: 13px;
 }
 
-/* =========================
-   ÉTEL GOMB
-========================= */
+.kerem {
+    flex-shrink: 0;
 
-.hozzaad-gomb {
-    min-width: 110px;
-    padding: 8px 12px;
+    min-width: 125px;
+    padding: 9px 10px;
+
+    border: 2px solid var(--bordo);
+    border-radius: 7px;
 
     background: white;
     color: var(--bordo);
 
-    border: 2px solid var(--bordo);
-    border-radius: 6px;
-
-    cursor: pointer;
-
-    font-family: "Fjalla One", sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     font-size: 14px;
     font-weight: bold;
 
-    transition: .15s ease;
-}
-
-.hozzaad-gomb.kivalasztva {
-    background: var(--grafit);
-    color: white;
-    border-color: var(--grafit);
-}
-
-.hozzaad-gomb:disabled {
-    background: #d5d5d5 !important;
-    color: #888 !important;
-    border-color: #bbb !important;
-    cursor: not-allowed;
-}
-
-/* =========================
-   ITAL
-========================= */
-
-.ital-valaszto-doboz {
-    padding: 5px 10px;
-
-    background: var(--kartya);
-
-    border: 1px solid var(--keret);
-    border-radius: 8px;
-}
-
-.ital-valaszto {
-    width: 100%;
-    padding: 6px 0;
-
-    background: transparent;
-    color: var(--grafit);
-
-    border: none;
-    outline: none;
-
-    font-family: "Fjalla One", sans-serif;
-    font-size: 15px;
-
     cursor: pointer;
+    transition: .15s;
 }
 
-.ital-valaszto:disabled {
+/* KIVÁLASZTVA = GRAFIT */
+.kerem.kivalasztva {
+    background: var(--grafit);
+    border-color: var(--grafit);
+    color: white;
+}
+
+.kerem:disabled {
+    background: #d5d5d5 !important;
+    border-color: #bbb !important;
+    color: #888 !important;
     cursor: not-allowed;
 }
 
-/* =========================
-   ALSÓ KOSÁR
-========================= */
+.ital-doboz {
+    background: var(--kartya);
+    border: 1px solid var(--szurke);
+    border-radius: 8px;
+    padding: 5px 10px;
+}
 
-.felugro-kosar {
+.ital-doboz select {
+    border: 0;
+    background: transparent;
+    outline: none;
+}
+
+/* ALSÓ KOSÁR */
+.kosar {
     position: fixed;
-    left: 50%;
-    bottom: 0;
+    z-index: 100;
 
+    bottom: 0;
+    left: 50%;
     transform: translateX(-50%);
 
     width: 100%;
     max-width: 600px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px;
+    padding: 13px 15px;
 
     background: var(--grafit);
     color: white;
 
     border-radius: 12px 12px 0 0;
 
-    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
-.veglegesit-gomb {
-    padding: 12px 20px;
+.kosar-darab {
+    font-size: 15px;
+}
+
+.veglegesit {
+    border: 0;
+    border-radius: 8px;
+
+    padding: 12px 18px;
 
     background: var(--bordo);
     color: white;
 
-    border: none;
-    border-radius: 8px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 15px;
 
     cursor: pointer;
-
-    font-family: "Fjalla One", sans-serif;
-    font-size: 16px;
 }
 
-.veglegesit-gomb:disabled {
-    background: #777;
+.veglegesit:disabled {
+    opacity: .6;
     cursor: not-allowed;
 }
 
-/* =========================
-   MOBIL
-========================= */
-
-@media (max-width: 500px) {
+@media (max-width: 480px) {
 
     body {
         padding: 10px;
-        padding-bottom: 90px;
+        padding-bottom: 100px;
+    }
+
+    header {
+        padding: 12px;
     }
 
     header img {
@@ -368,29 +296,19 @@ h3 {
     }
 
     header h1 {
-        font-size: 21px;
+        font-size: 22px;
     }
 
-    .etal-kartya {
-        align-items: stretch;
+    .etel {
+        align-items: flex-start;
     }
 
-    .hozzaad-gomb {
-        min-width: 105px;
-    }
-
-    .felugro-kosar {
-        padding: 10px;
-    }
-
-    .veglegesit-gomb {
-        padding: 10px 14px;
-        font-size: 14px;
+    .kerem {
+        min-width: 110px;
     }
 }
 </style>
 </head>
-
 
 <body>
 
@@ -401,76 +319,53 @@ h3 {
     <h1>Heti menü rendelés</h1>
 </header>
 
+<div class="doboz">
 
-<!-- =========================
-     ADATOK
-========================= -->
+    <h2>ADATOK</h2>
 
-<div class="diak-infok">
-
-    <h3>Adatok</h3>
-
-    <div class="input-group inline">
-        <input type="checkbox" id="tanarE">
-        <label for="tanarE">Tanár vagyok</label>
+    <div class="tanar-sor">
+        <input type="checkbox" id="tanar">
+        <label for="tanar">Tanár vagyok</label>
     </div>
 
     <div class="input-group">
-        <label for="diakNev">
-            Teljes név <span>*</span>
-        </label>
-
-        <input
-            type="text"
-            id="diakNev"
-            autocomplete="name"
-        >
+        <label>Teljes név <span class="kotelezo">*</span></label>
+        <input type="text" id="nev">
     </div>
 
     <div class="input-group">
-        <label for="diakEmail">
-            E-mail címed <span>*</span>
-        </label>
-
-        <input
-            type="email"
-            id="diakEmail"
-            autocomplete="email"
-        >
+        <label>E-mail címed <span class="kotelezo">*</span></label>
+        <input type="email" id="email">
     </div>
 
     <div class="osztaly-sor">
 
         <div class="input-group">
-            <label for="diakEvfolyam">
-                Évfolyam <span>*</span>
-            </label>
+            <label>Évfolyam <span class="kotelezo">*</span></label>
 
-            <select id="diakEvfolyam">
+            <select id="evfolyam">
                 <option value="">Szám...</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
             </select>
         </div>
 
         <div class="input-group">
-            <label for="diakBetujel">
-                Betűjel <span>*</span>
-            </label>
+            <label>Betűjel <span class="kotelezo">*</span></label>
 
-            <select id="diakBetujel">
+            <select id="betujel">
                 <option value="">Betű...</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="Ny">Ny</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>Ny</option>
             </select>
         </div>
 
@@ -479,542 +374,468 @@ h3 {
 </div>
 
 
-<!-- =========================
-     HÉTFŐ
-========================= -->
+<div class="doboz">
 
-<div class="nap-szekcio bordo" data-nap="Hétfő">
+<h2>AJÁNLATUNK</h2>
 
-    <div class="nap-cim">Hétfő</div>
 
-    <div class="kategoria-cim">Leves</div>
+<!-- HÉTFŐ -->
 
-    <div class="etal-kartya">
-        <div>
-            <h4>Paradicsomleves</h4>
-            <p>Betűtésztával</p>
-        </div>
+<div class="nap bordo" data-nap="Hétfő">
 
-        <button class="hozzaad-gomb"
-            data-nap="Hétfő"
-            data-etel="Paradicsomleves">
-            Kérem
-        </button>
-    </div>
+<div class="nap-cim">HÉTFŐ</div>
 
-    <div class="kategoria-cim">Főétel</div>
+<div class="kategoria">Leves</div>
 
-    <div class="etal-kartya">
-        <div>
-            <h4>Rántott szelet</h4>
-            <p>Burgonyapürével</p>
-        </div>
+<div class="etel">
+<div class="etel-nev">
+<h4>Paradicsomleves</h4>
+<p>Betűtésztával</p>
+</div>
 
-        <button class="hozzaad-gomb"
-            data-nap="Hétfő"
-            data-etel="Rántott szelet">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Desszert</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Palacsinta</h4>
-            <p>Ízes / Kakaós</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Hétfő"
-            data-etel="Palacsinta">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Ital</div>
-
-    <div class="ital-valaszto-doboz">
-
-        <select class="ital-valaszto" data-nap="Hétfő">
-
-            <option value="">Válassz italt...</option>
-
-            <option>Ásványvíz savas 0.5l</option>
-            <option>Ásványvíz mentes 0.5l</option>
-            <option>Cola 0.33l</option>
-            <option>Cola Zero 0.33l</option>
-            <option>Schweppes Citrus Mix 0.5l</option>
-            <option>Topjoy Görögdinnye 0.25l</option>
-            <option>Topjoy Kaktusz 0.25l</option>
-            <option>Topjoy Mangó 0.25l</option>
-            <option>Topjoy Őszibarack 0.25l</option>
-            <option>Topjoy Narancs 0.25l</option>
-
-        </select>
-
-    </div>
-
+<button class="kerem"
+data-termek="Paradicsomleves">
+Kérem
+</button>
 </div>
 
 
-<!-- =========================
-     KEDD
-========================= -->
+<div class="kategoria">Főétel</div>
 
-<div class="nap-szekcio" data-nap="Kedd">
+<div class="etel">
+<div class="etel-nev">
+<h4>Rántott szelet</h4>
+<p>Burgonyapürével</p>
+</div>
 
-    <div class="nap-cim">Kedd</div>
-
-    <div class="kategoria-cim">Leves</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Csontleves</h4>
-            <p>Cérnametélttel</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Kedd"
-            data-etel="Csontleves">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Főétel</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Bolognai spagetti</h4>
-            <p>Reszelt sajttal</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Kedd"
-            data-etel="Bolognai spagetti">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Desszert</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Muffin</h4>
-            <p>Csokoládés</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Kedd"
-            data-etel="Muffin">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Ital</div>
-
-    <div class="ital-valaszto-doboz">
-
-        <select class="ital-valaszto" data-nap="Kedd">
-
-            <option value="">Válassz italt...</option>
-
-            <option>Ásványvíz savas 0.5l</option>
-            <option>Ásványvíz mentes 0.5l</option>
-            <option>Cola 0.33l</option>
-            <option>Cola Zero 0.33l</option>
-            <option>Schweppes Citrus Mix 0.5l</option>
-            <option>Topjoy Görögdinnye 0.25l</option>
-            <option>Topjoy Kaktusz 0.25l</option>
-            <option>Topjoy Mangó 0.25l</option>
-            <option>Topjoy Őszibarack 0.25l</option>
-            <option>Topjoy Narancs 0.25l</option>
-
-        </select>
-
-    </div>
-
+<button class="kerem"
+data-termek="Rántott szelet">
+Kérem
+</button>
 </div>
 
 
-<!-- =========================
-     SZERDA
-========================= -->
+<div class="kategoria">Desszert</div>
 
-<div class="nap-szekcio bordo" data-nap="Szerda">
+<div class="etel">
+<div class="etel-nev">
+<h4>Palacsinta</h4>
+<p>Ízes / Kakaós</p>
+</div>
 
-    <div class="nap-cim">Szerda</div>
-
-    <div class="kategoria-cim">Leves</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Gyümölcsleves</h4>
-            <p>Erdei gyümölcs</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Szerda"
-            data-etel="Gyümölcsleves">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Főétel</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Brassói aprópecsenye</h4>
-            <p>Burgonyával</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Szerda"
-            data-etel="Brassói aprópecsenye">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Desszert</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Somlói galuska</h4>
-            <p>Tejszínhabbal</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Szerda"
-            data-etel="Somlói galuska">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Ital</div>
-
-    <div class="ital-valaszto-doboz">
-
-        <select class="ital-valaszto" data-nap="Szerda">
-
-            <option value="">Válassz italt...</option>
-
-            <option>Ásványvíz savas 0.5l</option>
-            <option>Ásványvíz mentes 0.5l</option>
-            <option>Cola 0.33l</option>
-            <option>Cola Zero 0.33l</option>
-            <option>Schweppes Citrus Mix 0.5l</option>
-            <option>Topjoy Görögdinnye 0.25l</option>
-            <option>Topjoy Kaktusz 0.25l</option>
-            <option>Topjoy Mangó 0.25l</option>
-            <option>Topjoy Őszibarack 0.25l</option>
-            <option>Topjoy Narancs 0.25l</option>
-
-        </select>
-
-    </div>
-
+<button class="kerem"
+data-termek="Palacsinta">
+Kérem
+</button>
 </div>
 
 
-<!-- =========================
-     CSÜTÖRTÖK
-========================= -->
+<div class="kategoria">Ital</div>
 
-<div class="nap-szekcio" data-nap="Csütörtök">
+<div class="ital-doboz">
 
-    <div class="nap-cim">Csütörtök</div>
+<select class="ital"
+data-nap="Hétfő">
 
-    <div class="kategoria-cim">Leves</div>
+<option value="">Válassz italt...</option>
+<option>Ásványvíz savas 0.5l</option>
+<option>Ásványvíz mentes 0.5l</option>
+<option>Cola 0.33l</option>
+<option>Cola Zero 0.33l</option>
+<option>Schweppes Citrus Mix 0.5l</option>
+<option>Topjoy Görögdinnye 0.25l</option>
+<option>Topjoy Kaktusz 0.25l</option>
+<option>Topjoy Mangó 0.25l</option>
+<option>Topjoy Őszibarack 0.25l</option>
+<option>Topjoy Narancs 0.25l</option>
 
-    <div class="etal-kartya">
-        <div>
-            <h4>Zöldségleves</h4>
-            <p>Friss zöldségekből</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Csütörtök"
-            data-etel="Zöldségleves">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Főétel</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Rakott burgonya</h4>
-            <p>Kolbásszal, tojással</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Csütörtök"
-            data-etel="Rakott burgonya">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Desszert</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Túró Rudi</h4>
-            <p>Óriás natúr</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Csütörtök"
-            data-etel="Túró Rudi">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Ital</div>
-
-    <div class="ital-valaszto-doboz">
-
-        <select class="ital-valaszto" data-nap="Csütörtök">
-
-            <option value="">Válassz italt...</option>
-
-            <option>Ásványvíz savas 0.5l</option>
-            <option>Ásványvíz mentes 0.5l</option>
-            <option>Cola 0.33l</option>
-            <option>Cola Zero 0.33l</option>
-            <option>Schweppes Citrus Mix 0.5l</option>
-            <option>Topjoy Görögdinnye 0.25l</option>
-            <option>Topjoy Kaktusz 0.25l</option>
-            <option>Topjoy Mangó 0.25l</option>
-            <option>Topjoy Őszibarack 0.25l</option>
-            <option>Topjoy Narancs 0.25l</option>
-
-        </select>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     PÉNTEK
-========================= -->
-
-<div class="nap-szekcio bordo" data-nap="Péntek">
-
-    <div class="nap-cim">Péntek</div>
-
-    <div class="kategoria-cim">Leves</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Gulyásleves</h4>
-            <p>Csipetkével</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Péntek"
-            data-etel="Gulyásleves">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Főétel</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Káposztás tészta</h4>
-            <p>Pirított káposztával</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Péntek"
-            data-etel="Káposztás tészta">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Desszert</div>
-
-    <div class="etal-kartya">
-        <div>
-            <h4>Lekváros fánk</h4>
-            <p>Porcukorral</p>
-        </div>
-
-        <button class="hozzaad-gomb"
-            data-nap="Péntek"
-            data-etel="Lekváros fánk">
-            Kérem
-        </button>
-    </div>
-
-    <div class="kategoria-cim">Ital</div>
-
-    <div class="ital-valaszto-doboz">
-
-        <select class="ital-valaszto" data-nap="Péntek">
-
-            <option value="">Válassz italt...</option>
-
-            <option>Ásványvíz savas 0.5l</option>
-            <option>Ásványvíz mentes 0.5l</option>
-            <option>Cola 0.33l</option>
-            <option>Cola Zero 0.33l</option>
-            <option>Schweppes Citrus Mix 0.5l</option>
-            <option>Topjoy Görögdinnye 0.25l</option>
-            <option>Topjoy Kaktusz 0.25l</option>
-            <option>Topjoy Mangó 0.25l</option>
-            <option>Topjoy Őszibarack 0.25l</option>
-            <option>Topjoy Narancs 0.25l</option>
-
-        </select>
-
-    </div>
+</select>
 
 </div>
 
 </div>
 
 
-<!-- =========================
-     ALSÓ KOSÁR
-========================= -->
+<!-- KEDD -->
 
-<div class="felugro-kosar">
+<div class="nap grafit" data-nap="Kedd">
 
-    <div>
-        Kiválasztva:
-        <strong id="kd">0</strong> db
-    </div>
+<div class="nap-cim">KEDD</div>
 
-    <button
-        class="veglegesit-gomb"
-        id="bg"
-    >
-        Rendelés véglegesítése
-    </button>
+<div class="kategoria">Leves</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Csontleves</h4>
+<p>Cérnametélttel</p>
+</div>
+
+<button class="kerem" data-termek="Csontleves">Kérem</button>
+</div>
+
+
+<div class="kategoria">Főétel</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Bolognai spagetti</h4>
+<p>Reszelt sajttal</p>
+</div>
+
+<button class="kerem" data-termek="Bolognai spagetti">Kérem</button>
+</div>
+
+
+<div class="kategoria">Desszert</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Muffin</h4>
+<p>Csokoládés</p>
+</div>
+
+<button class="kerem" data-termek="Muffin">Kérem</button>
+</div>
+
+
+<div class="kategoria">Ital</div>
+
+<div class="ital-doboz">
+
+<select class="ital" data-nap="Kedd">
+
+<option value="">Válassz italt...</option>
+<option>Ásványvíz savas 0.5l</option>
+<option>Ásványvíz mentes 0.5l</option>
+<option>Cola 0.33l</option>
+<option>Cola Zero 0.33l</option>
+<option>Schweppes Citrus Mix 0.5l</option>
+<option>Topjoy Görögdinnye 0.25l</option>
+<option>Topjoy Kaktusz 0.25l</option>
+<option>Topjoy Mangó 0.25l</option>
+<option>Topjoy Őszibarack 0.25l</option>
+<option>Topjoy Narancs 0.25l</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- SZERDA -->
+
+<div class="nap bordo" data-nap="Szerda">
+
+<div class="nap-cim">SZERDA</div>
+
+<div class="kategoria">Leves</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Gyümölcsleves</h4>
+<p>Erdei gyümölcs</p>
+</div>
+
+<button class="kerem" data-termek="Gyümölcsleves">Kérem</button>
+</div>
+
+
+<div class="kategoria">Főétel</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Brassói aprópecsenye</h4>
+<p>Burgonyával</p>
+</div>
+
+<button class="kerem" data-termek="Brassói aprópecsenye">Kérem</button>
+</div>
+
+
+<div class="kategoria">Desszert</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Somlói galuska</h4>
+<p>Tejszínhabbal</p>
+</div>
+
+<button class="kerem" data-termek="Somlói galuska">Kérem</button>
+</div>
+
+
+<div class="kategoria">Ital</div>
+
+<div class="ital-doboz">
+
+<select class="ital" data-nap="Szerda">
+
+<option value="">Válassz italt...</option>
+<option>Ásványvíz savas 0.5l</option>
+<option>Ásványvíz mentes 0.5l</option>
+<option>Cola 0.33l</option>
+<option>Cola Zero 0.33l</option>
+<option>Schweppes Citrus Mix 0.5l</option>
+<option>Topjoy Görögdinnye 0.25l</option>
+<option>Topjoy Kaktusz 0.25l</option>
+<option>Topjoy Mangó 0.25l</option>
+<option>Topjoy Őszibarack 0.25l</option>
+<option>Topjoy Narancs 0.25l</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- CSÜTÖRTÖK -->
+
+<div class="nap grafit" data-nap="Csütörtök">
+
+<div class="nap-cim">CSÜTÖRTÖK</div>
+
+<div class="kategoria">Leves</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Zöldségleves</h4>
+<p>Friss zöldségekből</p>
+</div>
+
+<button class="kerem" data-termek="Zöldségleves">Kérem</button>
+</div>
+
+
+<div class="kategoria">Főétel</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Rakott burgonya</h4>
+<p>Kolbásszal, tojással</p>
+</div>
+
+<button class="kerem" data-termek="Rakott burgonya">Kérem</button>
+</div>
+
+
+<div class="kategoria">Desszert</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Túró Rudi</h4>
+<p>Óriás natúr</p>
+</div>
+
+<button class="kerem" data-termek="Túró Rudi">Kérem</button>
+</div>
+
+
+<div class="kategoria">Ital</div>
+
+<div class="ital-doboz">
+
+<select class="ital" data-nap="Csütörtök">
+
+<option value="">Válassz italt...</option>
+<option>Ásványvíz savas 0.5l</option>
+<option>Ásványvíz mentes 0.5l</option>
+<option>Cola 0.33l</option>
+<option>Cola Zero 0.33l</option>
+<option>Schweppes Citrus Mix 0.5l</option>
+<option>Topjoy Görögdinnye 0.25l</option>
+<option>Topjoy Kaktusz 0.25l</option>
+<option>Topjoy Mangó 0.25l</option>
+<option>Topjoy Őszibarack 0.25l</option>
+<option>Topjoy Narancs 0.25l</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- PÉNTEK -->
+
+<div class="nap bordo" data-nap="Péntek">
+
+<div class="nap-cim">PÉNTEK</div>
+
+<div class="kategoria">Leves</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Gulyásleves</h4>
+<p>Csipetkével</p>
+</div>
+
+<button class="kerem" data-termek="Gulyásleves">Kérem</button>
+</div>
+
+
+<div class="kategoria">Főétel</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Káposztás tészta</h4>
+<p>Pirított káposztával</p>
+</div>
+
+<button class="kerem" data-termek="Káposztás tészta">Kérem</button>
+</div>
+
+
+<div class="kategoria">Desszert</div>
+
+<div class="etel">
+<div class="etel-nev">
+<h4>Lekváros fánk</h4>
+<p>Porcukorral</p>
+</div>
+
+<button class="kerem" data-termek="Lekváros fánk">Kérem</button>
+</div>
+
+
+<div class="kategoria">Ital</div>
+
+<div class="ital-doboz">
+
+<select class="ital" data-nap="Péntek">
+
+<option value="">Válassz italt...</option>
+<option>Ásványvíz savas 0.5l</option>
+<option>Ásványvíz mentes 0.5l</option>
+<option>Cola 0.33l</option>
+<option>Cola Zero 0.33l</option>
+<option>Schweppes Citrus Mix 0.5l</option>
+<option>Topjoy Görögdinnye 0.25l</option>
+<option>Topjoy Kaktusz 0.25l</option>
+<option>Topjoy Mangó 0.25l</option>
+<option>Topjoy Őszibarack 0.25l</option>
+<option>Topjoy Narancs 0.25l</option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- KOSÁR -->
+
+<div class="kosar">
+
+<div class="kosar-darab">
+Kiválasztva: <strong id="darab">0</strong> db
+</div>
+
+<button class="veglegesit" id="veglegesit">
+Rendelés véglegesítése
+</button>
 
 </div>
 
 
 <script>
 
-/* =====================================
+/* =========================================================
    GOOGLE APPS SCRIPT CÍME
-===================================== */
+   ========================================================= */
 
-const GOOGLE_SCRIPT_URL =
+const URL =
 "https://script.google.com/macros/s/AKfycbxb_GQtxhl6pc4JYQhghDFF0N-3JrAa8NhF2i8WU-mp23u7s4Z_YxZfodgc6V_qTg7Z/exec";
 
 
-/* =====================================
+/* =========================================================
    KOSÁR
-===================================== */
+   ========================================================= */
 
 const kosar = {
-
-    Hétfő: [],
-    Kedd: [],
-    Szerda: [],
-    Csütörtök: [],
-    Péntek: []
-
+    "Hétfő": [],
+    "Kedd": [],
+    "Szerda": [],
+    "Csütörtök": [],
+    "Péntek": []
 };
 
-const italok = {
 
-    Hétfő: [],
-    Kedd: [],
-    Szerda: [],
-    Csütörtök: [],
-    Péntek: []
+/* =========================================================
+   DARABSZÁM
+   ========================================================= */
 
-};
+function frissitDarab() {
 
-let dbSzam = 0;
+    let osszes = 0;
 
+    Object.values(kosar).forEach(nap => {
+        osszes += nap.length;
+    });
 
-/* =====================================
-   KOSÁR FRISSÍTÉSE
-===================================== */
-
-function frissitKosar() {
-
-    document.getElementById("kd").textContent =
-        dbSzam;
-
+    document.getElementById("darab").textContent = osszes;
 }
 
 
-/* =====================================
+/* =========================================================
    ÉTEL GOMBOK
-===================================== */
+   1 → 2 → 3 → vissza 0
+   ========================================================= */
 
-document
-.querySelectorAll(".hozzaad-gomb")
-.forEach(gomb => {
+document.querySelectorAll(".kerem").forEach(gomb => {
 
     gomb.addEventListener("click", function() {
 
         const nap =
-            this.dataset.nap;
+            this.closest(".nap").dataset.nap;
 
         const etel =
-            this.dataset.etel;
+            this.dataset.termek;
 
-        let darab =
-            Number(this.dataset.db || 0);
+        let mennyiseg =
+            Number(this.dataset.mennyiseg || 0);
 
 
-        /*
-         * 0 -> 1
-         * 1 -> 2
-         * 2 -> 3
-         * 3 -> törlés
-         */
+        if (mennyiseg < 3) {
 
-        if (darab < 3) {
+            mennyiseg++;
 
-            darab++;
-
-            this.dataset.db =
-                darab;
+            this.dataset.mennyiseg =
+                mennyiseg;
 
             kosar[nap].push(etel);
 
-            dbSzam++;
+        } else {
+
+            /*
+             * 3 → 0
+             */
+
+            this.dataset.mennyiseg = 0;
+
+            kosar[nap] =
+                kosar[nap].filter(
+                    x => x !== etel
+                );
+        }
+
+
+        if (mennyiseg > 0) {
 
             this.classList.add(
                 "kivalasztva"
             );
 
             this.textContent =
-                `Kiválasztva (${darab} db)`;
+                "Kiválasztva (" +
+                mennyiseg +
+                " db)";
 
         } else {
-
-            /*
-             * Mindhárom saját adagot töröljük.
-             */
-
-            for (let i = 0; i < 3; i++) {
-
-                const index =
-                    kosar[nap]
-                    .lastIndexOf(etel);
-
-                if (index !== -1) {
-
-                    kosar[nap]
-                    .splice(index, 1);
-
-                }
-
-            }
-
-            dbSzam -= 3;
-
-            this.dataset.db = 0;
 
             this.classList.remove(
                 "kivalasztva"
@@ -1022,221 +843,162 @@ document
 
             this.textContent =
                 "Kérem";
-
         }
 
-        frissitKosar();
+
+        frissitDarab();
 
     });
 
 });
 
 
-/* =====================================
+/* =========================================================
    ITAL
-===================================== */
+   ========================================================= */
 
-document
-.querySelectorAll(".ital-valaszto")
-.forEach(select => {
+document.querySelectorAll(".ital").forEach(select => {
 
-    select.addEventListener(
-        "change",
-        function() {
+    select.addEventListener("change", function() {
 
-            const ital =
-                this.value;
-
-            if (!ital) {
-                return;
-            }
-
-            const nap =
-                this.dataset.nap;
-
-            /*
-             * Az ital külön tömbbe kerül.
-             */
-
-            italok[nap].push(ital);
-
-            dbSzam++;
-
-            frissitKosar();
-
-            /*
-             * Visszaáll az alapértékre.
-             */
-
-            this.value = "";
-
+        if (!this.value) {
+            return;
         }
-    );
+
+        const nap =
+            this.dataset.nap;
+
+        kosar[nap].push(
+            this.value
+        );
+
+        frissitDarab();
+
+        this.value = "";
+
+    });
 
 });
 
 
-/* =====================================
+/* =========================================================
    TANÁR
-===================================== */
+   ========================================================= */
 
-document
-.getElementById("tanarE")
+document.getElementById("tanar")
 .addEventListener("change", function() {
 
-    const tanar =
-        this.checked;
+    const ev =
+        document.getElementById("evfolyam");
 
-    const evfolyam =
-        document.getElementById(
-            "diakEvfolyam"
-        );
+    const betu =
+        document.getElementById("betujel");
 
-    const betujel =
-        document.getElementById(
-            "diakBetujel"
-        );
+    ev.disabled = this.checked;
+    betu.disabled = this.checked;
 
+    if (this.checked) {
 
-    evfolyam.disabled =
-        tanar;
-
-    betujel.disabled =
-        tanar;
-
-
-    if (tanar) {
-
-        evfolyam.value = "";
-        betujel.value = "";
-
+        ev.value = "";
+        betu.value = "";
     }
 
 });
 
 
-/* =====================================
-   HETI NAPOK
-===================================== */
+/* =========================================================
+   NAPOK LEZÁRÁSA
+   MINDEN NAP 12:00-KOR ZÁR
+   ========================================================= */
 
-const NAPOK = [
-    "Hétfő",
-    "Kedd",
-    "Szerda",
-    "Csütörtök",
-    "Péntek"
-];
+function napokLezarasa() {
 
+    const most = new Date();
 
-/* =====================================
-   RENDELÉSI HATÁRIDŐ
-=====================================
-
-   Minden nap 12:00-kor lezárul.
-
-   Hétvégén:
-   - szombat: következő hét rendelhető
-   - vasárnap: következő hét rendelhető
-*/
-
-function frissitLezaras() {
-
-    const most =
-        new Date();
-
-    const maiNap =
+    const nap =
         most.getDay();
 
     const ora =
         most.getHours();
 
-    /*
-     * Hétfő = 1
-     * Kedd = 2
-     * ...
-     * Péntek = 5
-     */
+    const napIndexek = {
+        "Hétfő": 1,
+        "Kedd": 2,
+        "Szerda": 3,
+        "Csütörtök": 4,
+        "Péntek": 5
+    };
 
-    document
-    .querySelectorAll(".nap-szekcio")
+
+    document.querySelectorAll(".nap")
     .forEach(szekcio => {
 
-        const nap =
+        const nev =
             szekcio.dataset.nap;
 
-        const napIndex =
-            NAPOK.indexOf(nap);
+        const index =
+            napIndexek[nev];
 
-        let lezarva = false;
+        let zarva = false;
 
 
-        /*
-         * Szombat / vasárnap:
-         * semmi nincs lezárva,
-         * mert a következő hétre rendelünk.
-         */
+        if (nap === 0) {
 
-        if (
-            maiNap === 0 ||
-            maiNap === 6
-        ) {
+            /*
+             * Vasárnap minden nap rendelhető
+             */
 
-            lezarva = false;
+            zarva = false;
+
+        } else if (nap === 6) {
+
+            /*
+             * Szombat minden nap rendelhető
+             */
+
+            zarva = false;
 
         } else {
 
             /*
-             * A mai nap előtti napok zárva.
+             * Már elmúlt nap
              */
 
-            if (
-                napIndex <
-                maiNap - 1
-            ) {
-
-                lezarva = true;
-
+            if (index < nap) {
+                zarva = true;
             }
 
-
             /*
-             * Mai nap 12 után zárva.
+             * Mai nap 12:00 után lezár
              */
 
             if (
-                napIndex ===
-                maiNap - 1
-                &&
+                index === nap &&
                 ora >= 12
             ) {
-
-                lezarva = true;
-
+                zarva = true;
             }
 
         }
 
 
-        if (lezarva) {
+        if (zarva) {
 
             szekcio
             .querySelectorAll(
-                ".hozzaad-gomb, .ital-valaszto"
+                ".kerem, .ital"
             )
             .forEach(elem => {
 
-                elem.disabled =
-                    true;
+                elem.disabled = true;
 
                 if (
                     elem.classList.contains(
-                        "hozzaad-gomb"
+                        "kerem"
                     )
                 ) {
-
                     elem.textContent =
                         "Lezárva";
-
                 }
 
             });
@@ -1248,84 +1010,46 @@ function frissitLezaras() {
 }
 
 
-/* =====================================
-   RENDELÉS
-===================================== */
+/* =========================================================
+   RENDELÉS KÜLDÉSE
+   ========================================================= */
 
 document
-.getElementById("bg")
-.addEventListener(
-    "click",
-    veglegesit
-);
-
-
-function veglegesit() {
+.getElementById("veglegesit")
+.addEventListener("click", async function() {
 
     const nev =
-        document
-        .getElementById("diakNev")
-        .value
-        .trim();
+        document.getElementById("nev")
+        .value.trim();
 
     const email =
-        document
-        .getElementById("diakEmail")
-        .value
-        .trim();
+        document.getElementById("email")
+        .value.trim();
 
     const evfolyam =
-        document
-        .getElementById("diakEvfolyam")
+        document.getElementById("evfolyam")
         .value;
 
     const betujel =
-        document
-        .getElementById("diakBetujel")
+        document.getElementById("betujel")
         .value;
 
     const tanar =
-        document
-        .getElementById("tanarE")
+        document.getElementById("tanar")
         .checked;
 
-    const gomb =
-        document
-        .getElementById("bg");
 
-
-    /* NÉV + EMAIL */
+    /* ADATELLENŐRZÉS */
 
     if (!nev || !email) {
 
         alert(
-            "Kérlek, töltsd ki a nevet és az e-mail címet!"
+            "Kérlek töltsd ki a nevet és az e-mail címet!"
         );
 
         return;
-
     }
 
-
-    /* EMAIL */
-
-    const emailMinta =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (
-        !emailMinta.test(email)
-    ) {
-
-        alert(
-            "Kérlek, adj meg egy érvényes e-mail címet!"
-        );
-
-        return;
-
-    }
-
-
-    /* OSZTÁLY */
 
     if (
         !tanar &&
@@ -1333,37 +1057,37 @@ function veglegesit() {
     ) {
 
         alert(
-            "Kérlek, válaszd ki az osztályodat!"
+            "Kérlek válaszd ki az osztályodat!"
         );
 
         return;
-
     }
 
 
-    /* ÜRES KOSÁR */
+    let osszes =
+        Object.values(kosar)
+        .reduce(
+            (a, b) => a + b.length,
+            0
+        );
 
-    if (dbSzam === 0) {
+
+    if (osszes === 0) {
 
         alert(
-            "Üres a kosarad!"
+            "A kosarad üres!"
         );
 
         return;
-
     }
 
 
-    const osztaly =
-        tanar
-        ? "Tanár"
-        : `${evfolyam}.${betujel}`;
+    const gomb = this;
 
+    gomb.disabled = true;
+    gomb.textContent =
+        "Küldés...";
 
-    /*
-     * Külön küldjük az ételeket
-     * és az italokat.
-     */
 
     const payload = {
 
@@ -1371,93 +1095,79 @@ function veglegesit() {
 
         email: email,
 
-        osztaly: osztaly,
+        osztaly:
+            tanar
+            ? "Tanár"
+            : evfolyam + "." + betujel,
 
-        hetfo: kosar.Hétfő.join(", "),
-        kedd: kosar.Kedd.join(", "),
-        szerda: kosar.Szerda.join(", "),
-        csutortok: kosar.Csütörtök.join(", "),
-        pentek: kosar.Péntek.join(", "),
+        hetfo:
+            kosar["Hétfő"].join(", "),
 
-        ital_hetfo:
-            italok.Hétfő.join(", "),
+        kedd:
+            kosar["Kedd"].join(", "),
 
-        ital_kedd:
-            italok.Kedd.join(", "),
+        szerda:
+            kosar["Szerda"].join(", "),
 
-        ital_szerda:
-            italok.Szerda.join(", "),
+        csutortok:
+            kosar["Csütörtök"].join(", "),
 
-        ital_csutortok:
-            italok.Csütörtök.join(", "),
-
-        ital_pentek:
-            italok.Péntek.join(", ")
+        pentek:
+            kosar["Péntek"].join(", ")
 
     };
 
 
-    /* GOMB LETILTÁSA */
+    try {
 
-    gomb.disabled = true;
+        await fetch(URL, {
 
-    gomb.textContent =
-        "Küldés...";
-
-
-    /*
-     * Google Apps Script
-     */
-
-    fetch(
-        GOOGLE_SCRIPT_URL,
-        {
             method: "POST",
 
             mode: "no-cors",
 
             headers: {
                 "Content-Type":
-                    "application/json"
+                    "text/plain;charset=utf-8"
             },
 
             body:
                 JSON.stringify(payload)
-        }
-    )
-    .then(() => {
+
+        });
+
 
         alert(
-            "Sikeres rendelés!"
+            "Sikeres rendelés! Köszönjük."
         );
 
         location.reload();
 
-    })
-    .catch(() => {
+
+    } catch (hiba) {
+
+        console.error(hiba);
+
+        alert(
+            "Hiba történt a rendelés küldésekor."
+        );
 
         gomb.disabled = false;
 
         gomb.textContent =
             "Rendelés véglegesítése";
+    }
 
-        alert(
-            "Hiba történt a rendelés elküldésekor."
-        );
-
-    });
-
-}
+});
 
 
-/* =====================================
+/* =========================================================
    INDÍTÁS
-===================================== */
+   ========================================================= */
 
-frissitLezaras();
+napokLezarasa();
 
 </script>
 
 </body>
 </html>
-```
