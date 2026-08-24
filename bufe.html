@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dobó Büfé Menürendelés</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Javított Google Fonts beágyazás -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Anton&family=Fjalla+One&display=swap" rel="stylesheet">
     <style>
         :root { --hf: #e3e2e2; --pd: #833a3a; --po: #833a3a; --gs: #333333; --fh: #FFFFFF; }
         body { font-family: 'Fjalla One', sans-serif; background-color: var(--hf); color: var(--gs); margin: 0; padding: 20px; padding-bottom: 120px; }
@@ -11,8 +14,10 @@
         header { background-color: var(--pd); border-radius: 12px; margin-bottom: 20px; padding: 15px; display: flex; align-items: center; justify-content: center; gap: 15px; }
         header img { height: 50px; width: auto; }
         header h1 { font-family: 'Anton', sans-serif; color: #FFFFFF; margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px; }
-        .diak-infok, .nap-szekcio { background-color: var(--hf); padding: 15px; border-radius: 12px; margin-bottom: 20px; }
-        .diak-infok { border-left: 6px solid var(--gs); background-color: var(--fh); box-shadow: 0 4px 6px rgba(0,0,0,0.03); }
+        /* JAVÍTVA: A napok szekciói és az adatok is tiszta fehér hátteret kaptak */
+        .diak-infok, .nap-szekcio { background-color: var(--fh) !important; padding: 15px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border: 1px solid #D1C7BD; }
+        .diak-infok { border-left: 6px solid var(--gs); }
+        .diak-infok h3, h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; color: var(--gs); margin-top: 0; font-size: 22px; }
         .nap-szekcio.bordo { border-left: 6px solid var(--po); }
         .nap-szekcio.grafit { border-left: 6px solid var(--gs); }
         .input-group { margin-bottom: 15px; }
@@ -25,12 +30,14 @@
         .nap-cim { font-family: 'Anton', sans-serif; font-size: 24px; color: var(--gs); margin-bottom: 15px; text-transform: uppercase; }
         .nap-szekcio.bordo .nap-cim { color: var(--po); }
         .kategoria-cim { font-size: 12px; text-transform: uppercase; color: #777; margin: 15px 0 5px 0; letter-spacing: 0.5px; }
-        .etal-kartya { background-color: var(--hf); padding: 12px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .etal-kartya h4 { margin: 0 0 3px 0; color: var(--gs); font-size: 16px; font-weight: normal; }
+        /* JAVÍTVA: Az ételek háttérszíne mostantól #e3e2e2 */
+        .etal-kartya { background-color: var(--hf) !important; padding: 12px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #CCC; }
+        .etal-kartya h4 { margin: 0 0 3px 0; font-size: 16px; font-weight: normal; }
         .etal-kartya p { margin: 0; font-size: 13px; color: #666; }
         .hozzaad-gomb { background-color: var(--fh); color: var(--po); border: 2px solid var(--po); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-family: 'Fjalla One', sans-serif; min-width: 110px; text-align: center; }
         .nap-szekcio.grafit .hozzaad-gomb { color: var(--gs); border-color: var(--gs); }
         .hozzaad-gomb:disabled, select:disabled { background-color: #D5D5D5 !important; color: #888 !important; border-color: #BBB !important; cursor: not-allowed; }
+        .ital-select { width: 100%; padding: 10px; border: none; background: transparent; color: var(--gs); font-family: 'Fjalla One', sans-serif; font-weight: bold; outline: none; cursor: pointer; }
         .felugro-kosar { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--gs); color: #FFFFFF; padding: 15px; display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; border-radius: 12px 12px 0 0; box-sizing: border-box; }
         .veglegesit-gomb { background-color: var(--po); color: #FFFFFF; border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; font-family: 'Fjalla One', sans-serif; }
         .ital-valaszto-doboz select { background: transparent !important; border: none !important; border-radius: 0 !important; padding: 10px 0 !important; outline: none !important; font-size: 15px; cursor: pointer; }
@@ -39,7 +46,6 @@
 <body>
 <div class="container">
     <header>
-        <!-- A GitHubra feltöltött logo_bufe.png fájlt fogja ide beilleszteni -->
         <img src="logo_bufe.png" alt="Logo">
         <h1>Heti menü rendelés</h1>
     </header>
@@ -121,7 +127,7 @@
         document.querySelectorAll('.nap-szekcio').forEach(szekcio => {
             const nap = szekcio.getAttribute('data-nap');
             if (lezartak[nap]) {
-                szekcio.querySelectorAll('.hozzaad-gomb').forEach(g => { g.disabled = true; if(g.tagName === "BUTTON") g.innerText = "Lezárva"; });
+                szekcio.querySelectorAll('.hozzaad-gomb, select').forEach(g => { g.disabled = true; if(g.tagName === "BUTTON") g.innerText = "Lezárva"; });
             }
         });
     }
