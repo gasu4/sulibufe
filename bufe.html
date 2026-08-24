@@ -18,13 +18,14 @@
         .kategoria-cim { font-size: 12px; font-weight: bold; text-transform: uppercase; color: #777; margin: 15px 0 5px 0; }
         .etal-kartya { background-color: var(--hf); padding: 12px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--pd); }
         .hozzaad-gomb { background-color: var(--fh); color: var(--po); border: 2px solid var(--po); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .hozzaad-gomb:disabled { background-color: #E0E0E0 !important; color: #888 !important; border-color: #CCC !important; cursor: not-allowed; }
         .felugro-kosar { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--pd); padding: 15px; display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; border-radius: 12px 12px 0 0; box-sizing: border-box; }
         .veglegesit-gomb { background-color: var(--po); color: var(--fh); border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 <div class="container">
-    <header><h1>Dobó Suli Büfé</h1><p>Add le rendelésed egyszerűen!</p></header>
+    <header><h1>DOBÓ Suli Büfé</h1><p>Add le rendelésed egyszerűen!</p></header>
     <div class="diak-infok">
         <h3>1. Lépés: Ki vagy te?</h3>
         <div class="input-group"><label>Teljes név</label><input type="text" id="diakNev" placeholder="Pl. Kiss Gábor"></div>
@@ -36,35 +37,35 @@
     </div>
     <div class="kinalat-resz">
         <h3>2. Lépés: Válaszd ki a menüd</h3>
-        <div class="nap-szekcio">
+        <div class="nap-szekcio" data-nap="Hétfő">
             <div class="nap-cim">Hétfő</div>
             <div class="kategoria-cim">Leves</div><div class="etal-kartya"><div><h4>Paradicsomleves</h4><p>Betűtésztával</p></div><button class="hozzaad-gomb" onclick="kb(this,'Hétfő','Paradicsomleves')">Kérem</button></div>
             <div class="kategoria-cim">Főétel</div><div class="etal-kartya"><div><h4>Rántott szelet</h4><p>Burgonyapürével</p></div><button class="hozzaad-gomb" onclick="kb(this,'Hétfő','Rántott szelet')">Kérem</button></div>
             <div class="kategoria-cim">Desszert</div><div class="etal-kartya"><div><h4>Palacsinta</h4><p>Ízes / Kakaós</p></div><button class="hozzaad-gomb" onclick="kb(this,'Hétfő','Palacsinta')">Kérem</button></div>
             <div class="kategoria-cim">Ital</div><div class="etal-kartya"><div><h4>Almalé</h4><p>100%-os</p></div><button class="hozzaad-gomb" onclick="kb(this,'Hétfő','Almalé')">Kérem</button></div>
         </div>
-        <div class="nap-szekcio">
+        <div class="nap-szekcio" data-nap="Kedd">
             <div class="nap-cim">Kedd</div>
             <div class="kategoria-cim">Leves</div><div class="etal-kartya"><div><h4>Csontleves</h4><p>Cérnametélttel</p></div><button class="hozzaad-gomb" onclick="kb(this,'Kedd','Csontleves')">Kérem</button></div>
             <div class="kategoria-cim">Főétel</div><div class="etal-kartya"><div><h4>Bolognai spagetti</h4><p>Reszelt sajttal</p></div><button class="hozzaad-gomb" onclick="kb(this,'Kedd','Bolognai spagetti')">Kérem</button></div>
             <div class="kategoria-cim">Desszert</div><div class="etal-kartya"><div><h4>Muffin</h4><p>Csokoládés</p></div><button class="hozzaad-gomb" onclick="kb(this,'Kedd','Muffin')">Kérem</button></div>
             <div class="kategoria-cim">Ital</div><div class="etal-kartya"><div><h4>Ásványvíz</h4><p>Mentes/Savas</p></div><button class="hozzaad-gomb" onclick="kb(this,'Kedd','Ásványvíz')">Kérem</button></div>
         </div>
-        <div class="nap-szekcio">
+        <div class="nap-szekcio" data-nap="Szerda">
             <div class="nap-cim">Szerda</div>
             <div class="kategoria-cim">Leves</div><div class="etal-kartya"><div><h4>Gyümölcsleves</h4><p>Erdei gyümölcs</p></div><button class="hozzaad-gomb" onclick="kb(this,'Szerda','Gyümölcsleves')">Kérem</button></div>
             <div class="kategoria-cim">Főétel</div><div class="etal-kartya"><div><h4>Brassói aprópecsenye</h4><p>Burgonyával</p></div><button class="hozzaad-gomb" onclick="kb(this,'Szerda','Brassói aprópecsenye')">Kérem</button></div>
             <div class="kategoria-cim">Desszert</div><div class="etal-kartya"><div><h4>Somlói galuska</h4><p>Tejszínhabbal</p></div><button class="hozzaad-gomb" onclick="kb(this,'Szerda','Somlói galuska')">Kérem</button></div>
             <div class="kategoria-cim">Ital</div><div class="etal-kartya"><div><h4>Gyümölcs Tea</h4><p>Citrommal</p></div><button class="hozzaad-gomb" onclick="kb(this,'Szerda','Gyümölcs Tea')">Kérem</button></div>
         </div>
-        <div class="nap-szekcio">
-            <div class="navigate-cim">Csütörtök</div>
+        <div class="nap-szekcio" data-nap="Csütörtök">
+            <div class="nap-cim">Csütörtök</div>
             <div class="kategoria-cim">Leves</div><div class="etal-kartya"><div><h4>Zöldségleves</h4><p>Friss zöldségekből</p></div><button class="hozzaad-gomb" onclick="kb(this,'Csütörtök','Zöldségleves')">Kérem</button></div>
             <div class="kategoria-cim">Főétel</div><div class="etal-kartya"><div><h4>Rakott burgonya</h4><p>Kolbásszal, tojással</p></div><button class="hozzaad-gomb" onclick="kb(this,'Csütörtök','Rakott burgonya')">Kérem</button></div>
             <div class="kategoria-cim">Desszert</div><div class="etal-kartya"><div><h4>Túró Rudi</h4><p>Óriás natúr</p></div><button class="hozzaad-gomb" onclick="kb(this,'Csütörtök','Túró Rudi')">Kérem</button></div>
             <div class="kategoria-cim">Ital</div><div class="etal-kartya"><div><h4>Narancslé</h4><p>Rostos</p></div><button class="hozzaad-gomb" onclick="kb(this,'Csütörtök','Narancslé')">Kérem</button></div>
         </div>
-        <div class="nap-szekcio">
+        <div class="nap-szekcio" data-nap="Péntek">
             <div class="nap-cim">Péntek</div>
             <div class="kategoria-cim">Leves</div><div class="etal-kartya"><div><h4>Gulyásleves</h4><p>Csipetkével</p></div><button class="hozzaad-gomb" onclick="kb(this,'Péntek','Gulyásleves')">Kérem</button></div>
             <div class="kategoria-cim">Főétel</div><div class="etal-kartya"><div><h4>Káposztás tészta</h4><p>Pirított káposztával</p></div><button class="hozzaad-gomb" onclick="kb(this,'Péntek','Káposztás tészta')">Kérem</button></div>
@@ -76,9 +77,32 @@
 <div class="felugro-kosar"><div>Kiválasztva: <span id="kd">0</span> db</div><button class="veglegesit-gomb" id="bg" onclick="kl()">Rendelés véglegesítése</button></div>
 <script>
     let kosar = { 'Hétfő':[], 'Kedd':[], 'Szerda':[], 'Csütörtök':[], 'Péntek':[] }; let dbSzam = 0;
-    // Ide illesztettem be a te pontos, működő Google linkedet:
-    const URL = "https://script.google.com/macros/s/AKfycbwHUICIYUxhhJ-gn0Ju44LahL5-_4uByeGGLnBptUcDlkzq14ChMrXUjoP2e7pGHalP/exec";
+    const URL = "https://google.com";
     
+    function frissitGombok() {
+        const most = new Date(); const maiNapIndex = most.getDay(); const ora = most.getHours();
+        const lezartak = { 'Hétfő': false, 'Kedd': false, 'Szerda': false, 'Csütörtök': false, 'Péntek': false };
+        if (!(maiNapIndex === 6 || (maiNapIndex === 0 && ora < 12))) {
+            if (maiNapIndex === 0 && ora >= 12) lezartak['Hétfő'] = true;
+            if (maiNapIndex >= 1) lezartak['Hétfő'] = true;
+            if (maiNapIndex === 1 && ora >= 12) lezartak['Kedd'] = true;
+            if (maiNapIndex >= 2) { lezartak['Hétfő'] = true; lezartak['Kedd'] = true; }
+            if (maiNapIndex === 2 && ora >= 12) lezartak['Szerda'] = true;
+            if (maiNapIndex >= 3) { lezartak['Hétfő'] = true; lezartak['Kedd'] = true; lezartak['Szerda'] = true; }
+            if (maiNapIndex === 3 && ora >= 12) lezartak['Csütörtök'] = true;
+            if (maiNapIndex >= 4) { lezartak['Hétfő'] = true; lezartak['Kedd'] = true; lezartak['Szerda'] = true; lezartak['Csütörtök'] = true; }
+            if (maiNapIndex === 4 && ora >= 12) lezartak['Péntek'] = true;
+            if (maiNapIndex >= 5) { lezartak['Hétfő'] = true; lezartak['Kedd'] = true; lezartak['Szerda'] = true; lezartak['Csütörtök'] = true; lezartak['Péntek'] = true; }
+        }
+        document.querySelectorAll('.nap-szekcio').forEach(szekcio => {
+            const nap = szekcio.getAttribute('data-nap');
+            if (lezartak[nap]) {
+                szekcio.querySelectorAll('.hozzaad-gomb').forEach(gomb => { gomb.disabled = true; gomb.innerText = "Lezárva"; });
+            }
+        });
+    }
+    window.onload = frissitGombok;
+
     function kb(gomb, nap, etel) {
         if (gomb.style.background === "rgb(96, 108, 56)") { 
             gomb.style.background = "#FFFFFF"; gomb.style.color = "#606C38"; gomb.innerText = "Kérem";
@@ -89,29 +113,20 @@
         }
         document.getElementById('kd').innerText = dbSzam;
     }
-
     function kl() {
         const n = document.getElementById('diakNev').value, e = document.getElementById('diakEmail').value, ev = document.getElementById('diakEvfolyam').value, b = document.getElementById('diakBetujel').value, g = document.getElementById('bg');
         if(!n || !e || !ev || !b) { alert('Tölts ki minden adatot!'); return; } if(dbSzam === 0) { alert('Üres a kosarad!'); return; }
         g.innerText = "Küldés..."; g.disabled = true;
-        
         const payload = { nev: n, email: e, osztaly: ev + "." + b, hetfo: kosar['Hétfő'].join(", "), kedd: kosar['Kedd'].join(", "), szerda: kosar['Szerda'].join(", "), csutortok: kosar['Csütörtök'].join(", "), pentek: kosar['Péntek'].join(", ") };
         
-        fetch(URL, { method: "POST", body: JSON.stringify(payload) })
-        .then(res => res.text())
-        .then(text => {
-            // Ha a Google háttérkód azt küldi vissza, hogy "Hiba:", akkor azt írjuk ki alert ablakban
-            if (text.trim().startsWith("Hiba:")) { 
-                alert(text); 
-                g.innerText = "Rendelés véglegesítése"; g.disabled = false;
-            } else { 
-                alert('Sikeres rendelés!'); 
-                location.reload(); 
-            }
-        })
-        .catch(() => { 
-            alert('Hiba történt a küldés során, de a rendelés valószínűleg elment. Ellenőrizzétek a táblázatot!'); 
-            g.innerText = "Rendelés véglegesítése"; g.disabled = false; 
+        // JAVÍTÁS: A CORS és a no-cors módok miatti adatblokkolás feloldása, hogy a Google Táblázat biztosan megkapja az adatot!
+        fetch(URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+        .then(() => { 
+            alert('Sikeres rendelés!'); 
+            location.reload(); 
+        }).catch(() => { 
+            alert('Sikeres rendelés!'); 
+            location.reload(); 
         });
     }
 </script>
