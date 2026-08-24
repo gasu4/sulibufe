@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dobó Büfé Menürendelés</title>
+    <!-- Atombiztos Google Fonts betöltés link formátumban -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Anton&family=Fjalla+One&display=swap" rel="stylesheet">
@@ -31,8 +32,8 @@
         .etal-kartya { background-color: var(--kh) !important; padding: 12px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #CCC; }
         .etal-kartya h4 { font-family: 'Fjalla One', sans-serif !important; margin: 0 0 3px 0; font-size: 16px; font-weight: normal; }
         .etal-kartya p { font-family: 'Fjalla One', sans-serif !important; margin: 0; font-size: 13px; color: #666; }
-        .hozzaad-gomb { background-color: var(--fh); color: var(--po); border: 2px solid var(--po); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-family: 'Fjalla One', sans-serif !important; min-width: 110px; text-align: center; }
-        .nap-szekcio.grafit .hozzaad-gomb { color: var(--gs); border-color: var(--gs); }
+        /* JAVÍTVA: Minden gomb alapból BORDÓ színű */
+        .hozzaad-gomb { background-color: var(--fh); color: var(--po); border: 2px solid var(--po); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-family: 'Fjalla One', sans-serif !important; min-width: 110px; text-align: center; font-weight: bold; transition: all 0.2s; }
         .hozzaad-gomb:disabled, select:disabled { background-color: #D5D5D5 !important; color: #888 !important; border-color: #BBB !important; cursor: not-allowed; }
         .felugro-kosar { position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--gs); color: #FFFFFF; padding: 15px; display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; border-radius: 12px 12px 0 0; box-sizing: border-box; font-family: 'Fjalla One', sans-serif !important; }
         .veglegesit-gomb { background-color: var(--po); color: #FFFFFF; border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; font-family: 'Fjalla One', sans-serif !important; }
@@ -98,7 +99,7 @@
 <div class="felugro-kosar"><div>Kiválasztva: <span id="kd">0</span> db</div><button class="veglegesit-gomb" id="bg" onclick="kl()">Rendelés véglegesítése</button></div>
 <script>
     let kosar = { 'Hétfő':[], 'Kedd':[], 'Szerda':[], 'Csütörtök':[], 'Péntek':[] }; let dbSzam = 0;
-    // Javítva: A te pontos egyedi Google-linked sziklaszilárdan beépítve!
+    // JAVÍTVA: A te pontos egyedi Google-linked sziklaszilárdan beépítve!
     const URL = "https://script.google.com/macros/s/AKfycbz-9mgaydF-ruRc1YyMiVt35-lObzOeEDofNnltxzaM4j-W-bN58necQA5Tr2XuvJFI/exec";
     
     function kezelTanar() {
@@ -133,16 +134,16 @@
 
     function kb(gomb, nap, etel) {
         let db = parseInt(gomb.getAttribute('data-db') || '0');
-        let szin = gomb.closest('.nap-szekcio').classList.contains('bordo') ? "#833a3a" : "#333333";
+        // JAVÍTVA: Kiválasztás után minden gomb egységesen GRAFIT (#333333) színű lesz!
         if (db === 0) {
-            gomb.style.background = szin; gomb.style.color = "#FFFFFF"; gomb.innerText = "Kiválasztva (1 db)";
+            gomb.style.background = "#333333"; gomb.style.color = "#FFFFFF"; gomb.style.borderColor = "#333333"; gomb.innerText = "Kiválasztva (1 db)";
             gomb.setAttribute('data-db', '1'); kosar[nap].push(etel); dbSzam++;
         } else if (db === 1) {
             gomb.innerText = "Kiválasztva (2 db)"; gomb.setAttribute('data-db', '2'); kosar[nap].push(etel); dbSzam++;
         } else if (db === 2) {
             gomb.innerText = "Kiválasztva (3 db)"; gomb.setAttribute('data-db', '3'); kosar[nap].push(etel); dbSzam++;
         } else {
-            gomb.style.background = "#FFFFFF"; gomb.style.color = szin; gomb.innerText = "Kérem";
+            gomb.style.background = "#FFFFFF"; gomb.style.color = "#833a3a"; gomb.style.borderColor = "#833a3a"; gomb.innerText = "Kérem";
             gomb.setAttribute('data-db', '0'); kosar[nap] = kosar[nap].filter(i => i !== etel); dbSzam -= 3;
         }
         document.getElementById('kd').innerText = dbSzam;
