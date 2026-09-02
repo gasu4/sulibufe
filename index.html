@@ -27,9 +27,11 @@
         body {
             margin: 0;
             padding: 20px;
-            padding-bottom: 120px;
+            padding-bottom: 110px;
+
             background-color: var(--hatter);
             color: var(--grafit);
+
             font-family: "Fjalla One", sans-serif;
             font-weight: 400;
         }
@@ -39,6 +41,7 @@
             margin: 0 auto;
         }
 
+
         /* ==============================
            FEJLÉC
            ============================== */
@@ -46,6 +49,7 @@
         header {
             background-color: var(--bordo);
             border-radius: 12px;
+
             margin-bottom: 20px;
             padding: 16px 22px;
 
@@ -64,6 +68,7 @@
 
         header h1 {
             margin: 0;
+
             color: var(--feher);
 
             font-family: "Anton", sans-serif;
@@ -72,8 +77,10 @@
 
             text-transform: uppercase;
             letter-spacing: 1px;
+
             line-height: 1.1;
         }
+
 
         /* ==============================
            ADATOK
@@ -82,11 +89,14 @@
         .diak-infok,
         .nap-szekcio {
             background-color: var(--feher);
+
             padding: 15px;
             border-radius: 12px;
+
             margin-bottom: 20px;
 
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+
             border: 1px solid #d1c7bd;
         }
 
@@ -108,15 +118,22 @@
             text-transform: uppercase;
         }
 
+
+        /* ==============================
+           INPUTOK
+           ============================== */
+
         .input-group {
             margin-bottom: 15px;
         }
 
         .input-group label {
             display: block;
+
             margin-bottom: 5px;
 
             color: var(--grafit);
+
             font-size: 15px;
         }
 
@@ -150,6 +167,7 @@
         .input-group.inline {
             display: flex;
             align-items: center;
+
             gap: 8px;
         }
 
@@ -164,12 +182,14 @@
         .osztaly-sor {
             display: grid;
             grid-template-columns: 1fr 1fr;
+
             gap: 12px;
         }
 
         .osztaly-sor.tanar-aktiv {
             opacity: 0.5;
         }
+
 
         /* ==============================
            NAPI MENÜ
@@ -182,6 +202,7 @@
 
         .nap-cim {
             margin: -15px -15px 20px -15px;
+
             padding: 11px 15px;
 
             background-color: var(--bordo);
@@ -196,9 +217,9 @@
         }
 
         /*
-         * NINCS külön háttér,
-         * nincs külön keret a leves,
-         * főétel és szörp körül.
+         * A leves, főétel és szörp NEM külön kártya.
+         * Nincs külön szürke háttér.
+         * Nincs külön keret.
          */
 
         .menu-resz {
@@ -211,6 +232,7 @@
             color: var(--szurke);
 
             font-size: 13px;
+
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -240,6 +262,7 @@
 
             font-size: 17px;
         }
+
 
         /* ==============================
            KÉREM GOMB
@@ -276,8 +299,10 @@
 
         .hozzaad-gomb:disabled {
             background-color: #999999;
+
             cursor: not-allowed;
         }
+
 
         /* ==============================
            ALSÓ KOSÁR
@@ -285,6 +310,7 @@
 
         .felugro-kosar {
             position: fixed;
+
             bottom: 0;
             left: 0;
             right: 0;
@@ -305,7 +331,6 @@
 
             font-family: "Fjalla One", sans-serif;
             font-size: 15px;
-            font-weight: 400;
 
             z-index: 100;
         }
@@ -321,7 +346,6 @@
 
             font-family: "Fjalla One", sans-serif;
             font-size: 16px;
-            font-weight: 400;
 
             cursor: pointer;
         }
@@ -332,8 +356,10 @@
 
         .veglegesit-gomb:disabled {
             background-color: #777777;
+
             cursor: not-allowed;
         }
+
 
         /* ==============================
            MOBIL
@@ -343,13 +369,14 @@
 
             body {
                 padding: 10px;
-                padding-bottom: 110px;
+                padding-bottom: 105px;
             }
 
             header {
                 padding: 16px 12px;
 
                 flex-direction: column;
+
                 text-align: center;
 
                 gap: 8px;
@@ -373,6 +400,7 @@
 
             .veglegesit-gomb {
                 padding: 11px 14px;
+
                 font-size: 14px;
             }
         }
@@ -380,46 +408,87 @@
     </style>
 </head>
 
+
 <body>
 
 <div class="container">
 
-    <!-- FEJLÉC -->
+
+    <!-- ==============================
+         FEJLÉC
+         ============================== -->
 
     <header>
-        <img src="logo_bufe.png" alt="Dobó Büfé logó">
-        <h1>Heti menü rendelés</h1>
+
+        <img
+            src="logo_bufe.png"
+            alt="Dobó Büfé logó"
+        >
+
+        <h1>
+            Heti menü rendelés
+        </h1>
+
     </header>
 
 
-    <!-- ADATOK -->
+    <!-- ==============================
+         ADATOK
+         ============================== -->
 
     <div class="diak-infok">
 
         <h3>ADATOK</h3>
 
+
         <div class="input-group inline">
-            <input type="checkbox" id="tanarE" onchange="kezelTanar()">
-            <label for="tanarE">Tanár vagyok</label>
+
+            <input
+                type="checkbox"
+                id="tanarE"
+                onchange="kezelTanar()"
+            >
+
+            <label for="tanarE">
+                Tanár vagyok
+            </label>
+
         </div>
 
+
         <div class="input-group">
+
             <label>
                 Teljes név <span>*</span>
             </label>
 
-            <input type="text" id="diakNev">
+            <input
+                type="text"
+                id="diakNev"
+            >
+
         </div>
 
+
         <div class="input-group">
+
             <label>
                 E-mail címed <span>*</span>
             </label>
 
-            <input type="email" id="diakEmail">
+            <input
+                type="email"
+                id="diakEmail"
+            >
+
         </div>
 
-        <div class="osztaly-sor" id="osztalySor">
+
+        <div
+            class="osztaly-sor"
+            id="osztalySor"
+        >
+
 
             <div class="input-group">
 
@@ -429,7 +498,9 @@
 
                 <select id="diakEvfolyam">
 
-                    <option value="">Szám...</option>
+                    <option value="">
+                        Szám...
+                    </option>
 
                     <option value="5">5</option>
                     <option value="6">6</option>
@@ -444,6 +515,7 @@
 
             </div>
 
+
             <div class="input-group">
 
                 <label>
@@ -452,7 +524,9 @@
 
                 <select id="diakBetujel">
 
-                    <option value="">Betű...</option>
+                    <option value="">
+                        Betű...
+                    </option>
 
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -468,7 +542,9 @@
     </div>
 
 
-    <!-- AJÁNLATUNK -->
+    <!-- ==============================
+         AJÁNLAT
+         ============================== -->
 
     <div class="kinalat-resz">
 
@@ -477,35 +553,55 @@
 
         <!-- HÉTFŐ -->
 
-        <div class="nap-szekcio" data-nap="Hétfő">
+        <div
+            class="nap-szekcio"
+            data-nap="Hétfő"
+        >
 
-            <div class="nap-cim">HÉTFŐ</div>
+            <div class="nap-cim">
+                HÉTFŐ
+            </div>
+
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Leves</div>
+                <div class="kategoria-cim">
+                    Leves
+                </div>
 
-                <h4>Paradicsomleves</h4>
+                <h4>
+                    Paradicsomleves
+                </h4>
 
-                <p>Betűtésztával</p>
+                <p>
+                    Betűtésztával
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Főétel</div>
+                <div class="kategoria-cim">
+                    Főétel
+                </div>
 
-                <h4>Rántott szelet</h4>
+                <h4>
+                    Rántott szelet
+                </h4>
 
-                <p>Burgonyapürével</p>
+                <p>
+                    Burgonyapürével
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Ital</div>
+                <div class="kategoria-cim">
+                    Ital
+                </div>
 
                 <div class="szorp">
                     Szörp (4 dl)
@@ -517,7 +613,8 @@
             <button
                 class="hozzaad-gomb"
                 data-db="0"
-                onclick="kb(this,'Hétfő','Paradicsomleves + Rántott szelet')">
+                onclick="kb(this,'Hétfő','Paradicsomleves + Rántott szelet')"
+            >
                 Kérem
             </button>
 
@@ -526,35 +623,55 @@
 
         <!-- KEDD -->
 
-        <div class="nap-szekcio" data-nap="Kedd">
+        <div
+            class="nap-szekcio"
+            data-nap="Kedd"
+        >
 
-            <div class="nap-cim">KEDD</div>
+            <div class="nap-cim">
+                KEDD
+            </div>
+
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Leves</div>
+                <div class="kategoria-cim">
+                    Leves
+                </div>
 
-                <h4>Csontleves</h4>
+                <h4>
+                    Csontleves
+                </h4>
 
-                <p>Cérnametélttel</p>
+                <p>
+                    Cérnametélttel
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Főétel</div>
+                <div class="kategoria-cim">
+                    Főétel
+                </div>
 
-                <h4>Bolognai spagetti</h4>
+                <h4>
+                    Bolognai spagetti
+                </h4>
 
-                <p>Reszelt sajttal</p>
+                <p>
+                    Reszelt sajttal
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Ital</div>
+                <div class="kategoria-cim">
+                    Ital
+                </div>
 
                 <div class="szorp">
                     Szörp (4 dl)
@@ -566,7 +683,8 @@
             <button
                 class="hozzaad-gomb"
                 data-db="0"
-                onclick="kb(this,'Kedd','Csontleves + Bolognai spagetti')">
+                onclick="kb(this,'Kedd','Csontleves + Bolognai spagetti')"
+            >
                 Kérem
             </button>
 
@@ -575,35 +693,55 @@
 
         <!-- SZERDA -->
 
-        <div class="nap-szekcio" data-nap="Szerda">
+        <div
+            class="nap-szekcio"
+            data-nap="Szerda"
+        >
 
-            <div class="nap-cim">SZERDA</div>
+            <div class="nap-cim">
+                SZERDA
+            </div>
+
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Leves</div>
+                <div class="kategoria-cim">
+                    Leves
+                </div>
 
-                <h4>Gyümölcsleves</h4>
+                <h4>
+                    Gyümölcsleves
+                </h4>
 
-                <p>Erdei gyümölcs</p>
+                <p>
+                    Erdei gyümölcs
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Főétel</div>
+                <div class="kategoria-cim">
+                    Főétel
+                </div>
 
-                <h4>Brassói aprópecsenye</h4>
+                <h4>
+                    Brassói aprópecsenye
+                </h4>
 
-                <p>Burgonyával</p>
+                <p>
+                    Burgonyával
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Ital</div>
+                <div class="kategoria-cim">
+                    Ital
+                </div>
 
                 <div class="szorp">
                     Szörp (4 dl)
@@ -615,7 +753,8 @@
             <button
                 class="hozzaad-gomb"
                 data-db="0"
-                onclick="kb(this,'Szerda','Gyümölcsleves + Brassói aprópecsenye')">
+                onclick="kb(this,'Szerda','Gyümölcsleves + Brassói aprópecsenye')"
+            >
                 Kérem
             </button>
 
@@ -624,35 +763,55 @@
 
         <!-- CSÜTÖRTÖK -->
 
-        <div class="nap-szekcio" data-nap="Csütörtök">
+        <div
+            class="nap-szekcio"
+            data-nap="Csütörtök"
+        >
 
-            <div class="nap-cim">CSÜTÖRTÖK</div>
+            <div class="nap-cim">
+                CSÜTÖRTÖK
+            </div>
+
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Leves</div>
+                <div class="kategoria-cim">
+                    Leves
+                </div>
 
-                <h4>Zöldségleves</h4>
+                <h4>
+                    Zöldségleves
+                </h4>
 
-                <p>Friss zöldségekből</p>
+                <p>
+                    Friss zöldségekből
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Főétel</div>
+                <div class="kategoria-cim">
+                    Főétel
+                </div>
 
-                <h4>Rakott burgonya</h4>
+                <h4>
+                    Rakott burgonya
+                </h4>
 
-                <p>Kolbásszal, tojással</p>
+                <p>
+                    Kolbásszal, tojással
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Ital</div>
+                <div class="kategoria-cim">
+                    Ital
+                </div>
 
                 <div class="szorp">
                     Szörp (4 dl)
@@ -664,7 +823,8 @@
             <button
                 class="hozzaad-gomb"
                 data-db="0"
-                onclick="kb(this,'Csütörtök','Zöldségleves + Rakott burgonya')">
+                onclick="kb(this,'Csütörtök','Zöldségleves + Rakott burgonya')"
+            >
                 Kérem
             </button>
 
@@ -673,35 +833,55 @@
 
         <!-- PÉNTEK -->
 
-        <div class="nap-szekcio" data-nap="Péntek">
+        <div
+            class="nap-szekcio"
+            data-nap="Péntek"
+        >
 
-            <div class="nap-cim">PÉNTEK</div>
+            <div class="nap-cim">
+                PÉNTEK
+            </div>
+
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Leves</div>
+                <div class="kategoria-cim">
+                    Leves
+                </div>
 
-                <h4>Gulyásleves</h4>
+                <h4>
+                    Gulyásleves
+                </h4>
 
-                <p>Csipetkével</p>
+                <p>
+                    Csipetkével
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Főétel</div>
+                <div class="kategoria-cim">
+                    Főétel
+                </div>
 
-                <h4>Káposztás tészta</h4>
+                <h4>
+                    Káposztás tészta
+                </h4>
 
-                <p>Pirított káposztával</p>
+                <p>
+                    Pirított káposztával
+                </p>
 
             </div>
 
 
             <div class="menu-resz">
 
-                <div class="kategoria-cim">Ital</div>
+                <div class="kategoria-cim">
+                    Ital
+                </div>
 
                 <div class="szorp">
                     Szörp (4 dl)
@@ -713,7 +893,8 @@
             <button
                 class="hozzaad-gomb"
                 data-db="0"
-                onclick="kb(this,'Péntek','Gulyásleves + Káposztás tészta')">
+                onclick="kb(this,'Péntek','Gulyásleves + Káposztás tészta')"
+            >
                 Kérem
             </button>
 
@@ -724,19 +905,26 @@
 </div>
 
 
-<!-- ALSÓ KOSÁR -->
+<!-- ==============================
+     ALSÓ ÖSSZESÍTÉS
+     ============================== -->
 
 <div class="felugro-kosar">
 
     <div>
+
         Kiválasztva:
-        <span id="kd">0</span> db
+        <span id="kd">0</span>
+        db
+
     </div>
+
 
     <button
         class="veglegesit-gomb"
         id="bg"
-        onclick="kl()">
+        onclick="kl()"
+    >
         Rendelés véglegesítése
     </button>
 
@@ -745,17 +933,21 @@
 
 <script>
 
+
     /* ==============================
        KOSÁR
        ============================== */
 
     let kosar = {
+
         "Hétfő": [],
         "Kedd": [],
         "Szerda": [],
         "Csütörtök": [],
         "Péntek": []
+
     };
+
 
     let dbSzam = 0;
 
@@ -769,7 +961,7 @@
 
 
     /* ==============================
-       TANÁR / DIÁK
+       TANÁR
        ============================== */
 
     function kezelTanar() {
@@ -777,28 +969,39 @@
         const tanar =
             document.getElementById("tanarE").checked;
 
+
         const ev =
             document.getElementById("diakEvfolyam");
+
 
         const betu =
             document.getElementById("diakBetujel");
 
+
         const osztalySor =
             document.getElementById("osztalySor");
 
+
         ev.disabled = tanar;
+
         betu.disabled = tanar;
+
 
         if (tanar) {
 
             ev.value = "";
+
             betu.value = "";
 
-            osztalySor.classList.add("tanar-aktiv");
+            osztalySor.classList.add(
+                "tanar-aktiv"
+            );
 
         } else {
 
-            osztalySor.classList.remove("tanar-aktiv");
+            osztalySor.classList.remove(
+                "tanar-aktiv"
+            );
 
         }
 
@@ -811,27 +1014,27 @@
 
     function frissitGombok() {
 
-        const most = new Date();
+        const most =
+            new Date();
+
 
         const maiNap =
             most.getDay();
 
-        const ora =
-            most.getHours();
-
-        const perc =
-            most.getMinutes();
 
         const aktualisPerc =
-            ora * 60 + perc;
+            most.getHours() * 60 +
+            most.getMinutes();
 
 
         const napIndexek = {
+
             "Hétfő": 1,
             "Kedd": 2,
             "Szerda": 3,
             "Csütörtök": 4,
             "Péntek": 5
+
         };
 
 
@@ -840,20 +1043,26 @@
             .forEach(function(szekcio) {
 
                 const nap =
-                    szekcio.getAttribute("data-nap");
+                    szekcio.getAttribute(
+                        "data-nap"
+                    );
+
 
                 const napIndex =
                     napIndexek[nap];
+
 
                 let lezart = false;
 
 
                 /*
-                 * Szombat és vasárnap:
-                 * a következő hét minden napja rendelhető.
+                 * Hétvégén minden nap rendelhető.
                  */
 
-                if (maiNap === 6 || maiNap === 0) {
+                if (
+                    maiNap === 0 ||
+                    maiNap === 6
+                ) {
 
                     lezart = false;
 
@@ -863,21 +1072,8 @@
                      * Már elmúlt nap.
                      */
 
-                    if (napIndex < maiNap) {
-
-                        lezart = true;
-
-                    }
-
-
-                    /*
-                     * A mai nap:
-                     * 12:00 után már nem rendelhető.
-                     */
-
                     if (
-                        napIndex === maiNap &&
-                        aktualisPerc >= 12 * 60
+                        napIndex < maiNap
                     ) {
 
                         lezart = true;
@@ -886,23 +1082,33 @@
 
 
                     /*
-                     * Holnapra 12:00-ig rendelhető.
-                     * Az utána következő napok szintén rendelhetők.
+                     * Mai nap 12:00 után lezárva.
                      */
+
+                    if (
+                        napIndex === maiNap &&
+                        aktualisPerc >= 720
+                    ) {
+
+                        lezart = true;
+
+                    }
 
                 }
 
 
                 if (lezart) {
 
-                    szekcio
-                        .querySelectorAll(".hozzaad-gomb")
-                        .forEach(function(elem) {
+                    const gomb =
+                        szekcio.querySelector(
+                            ".hozzaad-gomb"
+                        );
 
-                            elem.disabled = true;
-                            elem.innerText = "Lezárva";
 
-                        });
+                    gomb.disabled = true;
+
+                    gomb.innerText =
+                        "Lezárva";
 
                 }
 
@@ -912,14 +1118,20 @@
 
 
     /* ==============================
-       MENÜ HOZZÁADÁSA
+       MENÜ KIVÁLASZTÁSA
        ============================== */
 
-    function kb(gomb, nap, menu) {
+    function kb(
+        gomb,
+        nap,
+        menu
+    ) {
 
         let db =
             parseInt(
-                gomb.getAttribute("data-db") || "0"
+                gomb.getAttribute(
+                    "data-db"
+                ) || "0"
             );
 
 
@@ -929,16 +1141,9 @@
 
         if (db === 0) {
 
-            gomb.setAttribute("data-db", "1");
-
-            gomb.classList.add("kivalasztva");
-
-            gomb.innerText =
-                "Kiválasztva (1 db)";
+            db = 1;
 
             kosar[nap].push(menu);
-
-            dbSzam++;
 
         }
 
@@ -949,14 +1154,9 @@
 
         else if (db === 1) {
 
-            gomb.setAttribute("data-db", "2");
-
-            gomb.innerText =
-                "Kiválasztva (2 db)";
+            db = 2;
 
             kosar[nap].push(menu);
-
-            dbSzam++;
 
         }
 
@@ -967,75 +1167,137 @@
 
         else if (db === 2) {
 
-            gomb.setAttribute("data-db", "3");
-
-            gomb.innerText =
-                "Kiválasztva (3 db)";
+            db = 3;
 
             kosar[nap].push(menu);
-
-            dbSzam++;
 
         }
 
 
         /*
-         * 3 -> 0
+         * 3 -> vissza 0
          */
 
         else {
 
-            gomb.setAttribute("data-db", "0");
+            db = 0;
 
-            gomb.classList.remove("kivalasztva");
-
-            gomb.innerText = "Kérem";
-
-
-            for (let i = 0; i < 3; i++) {
-
-                const index =
-                    kosar[nap].indexOf(menu);
-
-                if (index !== -1) {
-
-                    kosar[nap].splice(index, 1);
-
-                }
-
-            }
+            kosar[nap] = [];
 
             dbSzam -= 3;
 
         }
 
 
-        document.getElementById("kd").innerText =
-            dbSzam;
+        /*
+         * Ha 1-3 db lett,
+         * frissítjük a számlálót.
+         */
+
+        if (db > 0) {
+
+            if (
+                dbSzam <
+                Object.values(kosar)
+                    .reduce(
+                        (osszeg, lista) =>
+                            osszeg + lista.length,
+                        0
+                    )
+            ) {
+
+                dbSzam++;
+
+            }
+
+        }
+
+
+        /*
+         * Biztonság kedvéért újraszámoljuk.
+         */
+
+        dbSzam =
+            Object.values(kosar)
+                .reduce(
+                    (osszeg, lista) =>
+                        osszeg + lista.length,
+                    0
+                );
+
+
+        gomb.setAttribute(
+            "data-db",
+            db
+        );
+
+
+        if (db === 0) {
+
+            gomb.classList.remove(
+                "kivalasztva"
+            );
+
+            gomb.innerText =
+                "Kérem";
+
+        } else {
+
+            gomb.classList.add(
+                "kivalasztva"
+            );
+
+            gomb.innerText =
+                "Kiválasztva (" +
+                db +
+                " db)";
+
+        }
+
+
+        document.getElementById("kd")
+            .innerText = dbSzam;
 
     }
 
 
     /* ==============================
-       RENDELÉS LEADÁSA
+       RENDELÉS
        ============================== */
 
     function kl() {
 
         const nev =
-            document.getElementById("diakNev").value.trim();
+            document
+                .getElementById("diakNev")
+                .value
+                .trim();
+
 
         const email =
-            document.getElementById("diakEmail").value.trim();
+            document
+                .getElementById("diakEmail")
+                .value
+                .trim();
+
 
         const evfolyam =
-            document.getElementById("diakEvfolyam").value;
+            document
+                .getElementById("diakEvfolyam")
+                .value;
+
 
         const betujel =
-            document.getElementById("diakBetujel").value;
+            document
+                .getElementById("diakBetujel")
+                .value;
+
 
         const tanar =
-            document.getElementById("tanarE").checked;
+            document
+                .getElementById("tanarE")
+                .checked;
+
 
         const gomb =
             document.getElementById("bg");
@@ -1056,7 +1318,10 @@
         }
 
 
-        if (!tanar && (!evfolyam || !betujel)) {
+        if (
+            !tanar &&
+            (!evfolyam || !betujel)
+        ) {
 
             alert(
                 "Kérlek válaszd ki az évfolyamodat és a betűjeledet!"
@@ -1101,12 +1366,14 @@
         const osztalyNev =
             tanar
                 ? "Tanár"
-                : evfolyam + "." + betujel;
+                : evfolyam +
+                  "." +
+                  betujel;
 
 
-        /* ==============================
-           ADATOK GOOGLE SHEETS FELÉ
-           ============================== */
+        /*
+         * ADATOK
+         */
 
         const payload = {
 
@@ -1134,42 +1401,62 @@
         };
 
 
-        fetch(URL, {
+        /*
+         * GOOGLE APPS SCRIPT
+         *
+         * text/plain:
+         * nincs CORS preflight.
+         */
 
-            method: "POST",
+        fetch(
+            URL,
+            {
 
-            mode: "no-cors",
+                method: "POST",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+                mode: "no-cors",
 
-            body: JSON.stringify(payload)
+                headers: {
 
-        })
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
 
-        .then(function() {
+                },
 
-            alert(
-                "Sikeres rendelés!"
-            );
+                body:
+                    JSON.stringify(payload)
 
-            location.reload();
+            }
+        )
+        .then(
+            function() {
 
-        })
+                alert(
+                    "Rendelés elküldve!"
+                );
 
-        .catch(function() {
+                location.reload();
 
-            gomb.disabled = false;
+            }
+        )
+        .catch(
+            function(error) {
 
-            gomb.innerText =
-                "Rendelés véglegesítése";
+                console.error(error);
 
-            alert(
-                "Hiba történt a rendelés elküldése közben. Kérlek próbáld újra!"
-            );
 
-        });
+                gomb.disabled = false;
+
+                gomb.innerText =
+                    "Rendelés véglegesítése";
+
+
+                alert(
+                    "Hiba történt a rendelés elküldése közben. Kérlek próbáld újra!"
+                );
+
+            }
+        );
 
     }
 
