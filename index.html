@@ -356,7 +356,7 @@
 
             color: var(--grafit);
 
-            font-size: 17px;
+            font-size: 14px;
         }
 
 
@@ -541,9 +541,9 @@
 
             header h1 {
                 left: 88px;
-                font-size: 21px;
-                white-space: normal;
-                max-width: calc(100% - 100px);
+                font-size: 19px;
+                white-space: nowrap;
+                max-width: none;
             }
 
             .tajekoztato {
@@ -556,6 +556,13 @@
 
             .felugro-kosar {
                 padding: 12px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .veglegesit-gomb {
+                display: block;
+                margin: 0 auto;
             }
 
             .veglegesit-gomb {
@@ -581,13 +588,13 @@
         }
 
         .veglegesit-gomb {
-            color: #777777;
+            color: #333333;
         }
 
         .hozzaad-gomb {
             background-color: #ffffff;
-            border: 2px solid #777777;
-            color: #777777;
+            border: 2px solid #333333;
+            color: #333333;
         }
 
         .hozzaad-gomb:hover:not(:disabled) {
@@ -595,34 +602,18 @@
         }
 
         .hozzaad-gomb.kivalasztva {
-            background-color: #777777;
-            border: 2px solid #777777;
+            background-color: #333333;
+            border: 2px solid #333333;
             color: #ffffff;
         }
 
-        .nap-szekcio[data-nap="Hétfő"] .hozzaad-gomb {
-            border-color: #43749e;
-            color: #43749e;
-        }
-
-        .nap-szekcio[data-nap="Kedd"] .hozzaad-gomb {
-            border-color: #ebbc3c;
-            color: #ebbc3c;
-        }
-
-        .nap-szekcio[data-nap="Szerda"] .hozzaad-gomb {
-            border-color: #477d55;
-            color: #477d55;
-        }
-
-        .nap-szekcio[data-nap="Csütörtök"] .hozzaad-gomb {
-            border-color: #f26e7f;
-            color: #f26e7f;
-        }
-
+        .nap-szekcio[data-nap="Hétfő"] .hozzaad-gomb,
+        .nap-szekcio[data-nap="Kedd"] .hozzaad-gomb,
+        .nap-szekcio[data-nap="Szerda"] .hozzaad-gomb,
+        .nap-szekcio[data-nap="Csütörtök"] .hozzaad-gomb,
         .nap-szekcio[data-nap="Péntek"] .hozzaad-gomb {
-            border-color: #707070;
-            color: #707070;
+            border-color: #333333;
+            color: #333333;
         }
 
         .nap-szekcio[data-nap="Hétfő"] .hozzaad-gomb.kivalasztva,
@@ -630,13 +621,50 @@
         .nap-szekcio[data-nap="Szerda"] .hozzaad-gomb.kivalasztva,
         .nap-szekcio[data-nap="Csütörtök"] .hozzaad-gomb.kivalasztva,
         .nap-szekcio[data-nap="Péntek"] .hozzaad-gomb.kivalasztva {
-            background-color: #777777;
-            border-color: #777777;
+            background-color: #333333;
+            border-color: #333333;
             color: #ffffff;
         }
 
         input[type="checkbox"] {
             accent-color: #777777;
+        }
+
+        /* SIKERES RENDELÉS MODAL */
+        .siker-modal-hatter {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .siker-modal {
+            width: min(360px, 100%);
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            color: #333333;
+            font-family: "Fjalla One", sans-serif;
+            font-size: 20px;
+            line-height: 1.45;
+        }
+
+        .siker-modal-gomb {
+            margin-top: 18px;
+            padding: 9px 24px;
+            border: 2px solid #333333;
+            border-radius: 7px;
+            background: #ffffff;
+            color: #333333;
+            font-family: "Fjalla One", sans-serif;
+            font-size: 15px;
+            cursor: pointer;
         }
 
 </style>
@@ -1210,6 +1238,15 @@
 </div>
 
 
+
+<div class="siker-modal-hatter" id="sikerModal">
+    <div class="siker-modal">
+        <div>Rendelésed leadva!</div>
+        <div>Köszönjük!</div>
+        <button class="siker-modal-gomb" onclick="location.reload()">OK</button>
+    </div>
+</div>
+
 <script>
 
 let kosar={"Hétfő":[],"Kedd":[],"Szerda":[],"Csütörtök":[],"Péntek":[]};
@@ -1292,8 +1329,7 @@ function kl(){
     form.submit();
 
     setTimeout(function(){
-        alert("Rendelésed leadva!\nKöszönjük!");
-        location.reload();
+        document.getElementById("sikerModal").style.display="flex";
     },2000);
 }
 
