@@ -564,7 +564,82 @@
             }
         }
 
-    </style>
+    
+
+        /* ==============================
+           ÚJ FINOMHANGOLÁSOK
+           ============================== */
+
+        .kedvezmenyek {
+            color: #ebbc3c;
+            font-weight: 600;
+        }
+
+        .fizetesi-info {
+            margin-top: 5px;
+            color: var(--feher);
+        }
+
+        .veglegesit-gomb {
+            color: #777777;
+        }
+
+        .hozzaad-gomb {
+            background-color: #ffffff;
+            border: 2px solid #777777;
+            color: #777777;
+        }
+
+        .hozzaad-gomb:hover:not(:disabled) {
+            background-color: #f5f5f5;
+        }
+
+        .hozzaad-gomb.kivalasztva {
+            background-color: #777777;
+            border: 2px solid #777777;
+            color: #ffffff;
+        }
+
+        .nap-szekcio[data-nap="Hétfő"] .hozzaad-gomb {
+            border-color: #43749e;
+            color: #43749e;
+        }
+
+        .nap-szekcio[data-nap="Kedd"] .hozzaad-gomb {
+            border-color: #ebbc3c;
+            color: #ebbc3c;
+        }
+
+        .nap-szekcio[data-nap="Szerda"] .hozzaad-gomb {
+            border-color: #477d55;
+            color: #477d55;
+        }
+
+        .nap-szekcio[data-nap="Csütörtök"] .hozzaad-gomb {
+            border-color: #f26e7f;
+            color: #f26e7f;
+        }
+
+        .nap-szekcio[data-nap="Péntek"] .hozzaad-gomb {
+            border-color: #707070;
+            color: #707070;
+        }
+
+        .nap-szekcio[data-nap="Hétfő"] .hozzaad-gomb.kivalasztva,
+        .nap-szekcio[data-nap="Kedd"] .hozzaad-gomb.kivalasztva,
+        .nap-szekcio[data-nap="Szerda"] .hozzaad-gomb.kivalasztva,
+        .nap-szekcio[data-nap="Csütörtök"] .hozzaad-gomb.kivalasztva,
+        .nap-szekcio[data-nap="Péntek"] .hozzaad-gomb.kivalasztva {
+            background-color: #777777;
+            border-color: #777777;
+            color: #ffffff;
+        }
+
+        input[type="checkbox"] {
+            accent-color: #777777;
+        }
+
+</style>
 </head>
 
 
@@ -618,6 +693,9 @@
 
         <div class="kedvezmenyek">
             Aki az egész hétre feliratkozik, annak 10% kedvezmény jár!
+        </div>
+        <div class="fizetesi-info">
+            Fizetni csak személyesen, a büfében tudtok készpénzzel vagy bankkártyával!
         </div>
 
     </div>
@@ -1214,7 +1292,7 @@ function kl(){
     form.submit();
 
     setTimeout(function(){
-        alert("A rendelés elküldve. Ha a Google táblázatban mégsem jelenik meg, ellenőrizd az Apps Script telepítését (Webalkalmazás / hozzáférés: Bárki).");
+        alert("Rendelésed leadva!\nKöszönjük!");
         location.reload();
     },2000);
 }
