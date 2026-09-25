@@ -17,7 +17,6 @@
   --hatterszin: #e3e2e2;
   --feher: #ffffff;
   --keret: #d2d2d2;
-  --szurke: #777777;
 }
 
 * {
@@ -42,9 +41,7 @@ body {
   margin: 0 auto;
 }
 
-/* =========================
-   FEJLÉC – EREDETI KINÉZET
-   ========================= */
+/* FEJLÉC */
 
 header {
   background: var(--bordo);
@@ -90,22 +87,11 @@ header img {
   color: var(--feher);
 }
 
-.header-subtitle .deadline {
-  color: var(--feher);
-}
-
-.header-subtitle .discount {
-  color: var(--feher);
-}
-
-/* =========================
-   RENDELŐ ADATAI
-   ========================= */
+/* RENDELŐ ADATAI */
 
 .diak-infok {
   background: transparent;
   border: none;
-  border-radius: 0;
   padding: 0;
   margin-bottom: 18px;
 }
@@ -186,9 +172,7 @@ header img {
   opacity: .45;
 }
 
-/* =========================
-   HETI MENÜ
-   ========================= */
+/* HETI MENÜ */
 
 .kinalat-resz {
   margin-bottom: 18px;
@@ -210,7 +194,6 @@ header img {
   letter-spacing: .5px;
 }
 
-/* MINDEN NAP FOLYAMATOSAN LÁTSZIK */
 .napok-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -298,9 +281,7 @@ header img {
   vertical-align: middle;
 }
 
-/* =========================
-   KÉREM GOMB
-   ========================= */
+/* KÉREM GOMBOK */
 
 .nap-kerem-gomb {
   width: 100%;
@@ -337,9 +318,7 @@ select:disabled {
   cursor: not-allowed;
 }
 
-/* =========================
-   ALSÓ ÖSSZESÍTŐ
-   ========================= */
+/* ALSÓ ÖSSZESÍTŐ */
 
 .felugro-kosar {
   position: fixed;
@@ -412,9 +391,7 @@ select:disabled {
   cursor: not-allowed;
 }
 
-/* =========================
-   MOBIL
-   ========================= */
+/* MOBIL */
 
 @media (max-width: 680px) {
 
@@ -463,7 +440,6 @@ select:disabled {
     font-size: 21px;
   }
 
-  /* MOBILON IS MINDEN NAP LÁTSZIK */
   .napok-grid {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -535,402 +511,388 @@ select:disabled {
 
 <div class="container">
 
-  <!-- =========================
-       FEJLÉC
-       ========================= -->
+<header>
 
-  <header>
+  <!-- AZ EREDETI LOGÓ FÁJLNEVE -->
+  <img src="logo_bufe.png" alt="Dobó Büfé logó">
 
-    <!-- AZ EREDETI LOGÓ -->
-    <img src="logo_bufe.png" alt="Dobó Büfé logó">
+  <div class="header-copy">
 
-    <div class="header-copy">
+    <h1 class="header-title">
+      Heti menü rendelés
+    </h1>
 
-      <h1 class="header-title">
-        Heti menü rendelés
-      </h1>
+    <p class="header-subtitle">
 
-      <p class="header-subtitle">
+      A menü ára <strong>1400 Ft/nap.</strong><br>
 
-        A menü ára <strong>1400 Ft/nap.</strong><br>
+      <span class="deadline">
+        A rendeléseket legkésőbb az előző hét szerda éjfélig tudjátok leadni!
+      </span><br>
 
-        <span class="deadline">
-          A rendeléseket legkésőbb az előző hét szerda éjfélig tudjátok leadni!
-        </span><br>
+      <span class="discount">
+        Aki az egész hétre feliratkozik, annak 10% kedvezmény jár!
+      </span>
 
-        <span class="discount">
-          Aki az egész hétre feliratkozik, annak 10% kedvezmény jár!
-        </span>
+    </p>
 
-      </p>
+  </div>
 
-    </div>
-
-  </header>
+</header>
 
 
-  <!-- =========================
-       RENDELŐ ADATAI
-       ========================= -->
+<section class="diak-infok">
 
-  <section class="diak-infok">
+  <h3>
+    Rendelő adatai
+  </h3>
 
-    <h3>
-      Rendelő adatai
-    </h3>
+  <div class="input-group inline">
 
-    <div class="input-group inline">
-
-      <input
-        type="checkbox"
-        id="tanarE"
-        onchange="kezelTanar()"
-      >
-
-      <label for="tanarE">
-        Tanár vagyok
-      </label>
-
-    </div>
-
-
-    <div class="input-group">
-
-      <label>
-        Teljes név <span>*</span>
-      </label>
-
-      <input
-        type="text"
-        id="diakNev"
-        placeholder="Teljes név"
-      >
-
-    </div>
-
-
-    <div class="input-group">
-
-      <label>
-        E-mail címed <span>*</span>
-      </label>
-
-      <input
-        type="email"
-        id="diakEmail"
-        placeholder="email@pelda.hu"
-      >
-
-    </div>
-
-
-    <div
-      class="osztaly-sor"
-      id="osztalySor"
+    <input
+      type="checkbox"
+      id="tanarE"
+      onchange="kezelTanar()"
     >
 
-      <div class="input-group">
+    <label for="tanarE">
+      Tanár vagyok
+    </label>
 
-        <label>
-          Évfolyam <span>*</span>
-        </label>
-
-        <select id="diakEvfolyam">
-
-          <option value="">
-            Válassz...
-          </option>
-
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-
-        </select>
-
-      </div>
+  </div>
 
 
-      <div class="input-group">
+  <div class="input-group">
 
-        <label>
-          Betűjel <span>*</span>
-        </label>
+    <label>
+      Teljes név <span>*</span>
+    </label>
 
-        <select id="diakBetujel">
+    <input
+      type="text"
+      id="diakNev"
+      placeholder="Teljes név"
+    >
 
-          <option value="">
-            Válassz...
-          </option>
+  </div>
 
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="Ny">Ny</option>
 
-        </select>
+  <div class="input-group">
 
-      </div>
+    <label>
+      E-mail címed <span>*</span>
+    </label>
+
+    <input
+      type="email"
+      id="diakEmail"
+      placeholder="email@pelda.hu"
+    >
+
+  </div>
+
+
+  <div
+    class="osztaly-sor"
+    id="osztalySor"
+  >
+
+    <div class="input-group">
+
+      <label>
+        Évfolyam <span>*</span>
+      </label>
+
+      <select id="diakEvfolyam">
+
+        <option value="">
+          Válassz...
+        </option>
+
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+
+      </select>
 
     </div>
 
-  </section>
+
+    <div class="input-group">
+
+      <label>
+        Betűjel <span>*</span>
+      </label>
+
+      <select id="diakBetujel">
+
+        <option value="">
+          Válassz...
+        </option>
+
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="Ny">Ny</option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+</section>
 
 
-  <!-- =========================
-       HETI MENÜ
-       ========================= -->
+<section class="kinalat-resz">
 
-  <section class="kinalat-resz">
+  <div class="section-title">
+    Heti menü
+  </div>
 
-    <div class="section-title">
-      Heti menü
+
+  <div class="napok-grid">
+
+
+    <!-- HÉTFŐ -->
+
+    <div
+      class="nap-szekcio"
+      data-nap="Hétfő"
+    >
+
+      <div class="nap-cim">
+        HÉTFŐ <small>10.05.</small>
+      </div>
+
+      <div class="menu-sor">
+        <strong>Leves:</strong>
+        Erőleves
+      </div>
+
+      <div class="menu-sor">
+        <strong>Főétel:</strong>
+        Hamburger sültkrumplival
+      </div>
+
+      <div class="menu-sor">
+        <strong>Ital:</strong>
+        Szörp (4 dl)
+      </div>
+
+      <button
+        class="nap-kerem-gomb"
+        onclick="napiRendeles('Hétfő', this)"
+      >
+        Kérem
+      </button>
+
     </div>
 
 
-    <div class="napok-grid">
+    <!-- KEDD -->
 
+    <div
+      class="nap-szekcio"
+      data-nap="Kedd"
+    >
 
-      <!-- HÉTFŐ -->
-
-      <div
-        class="nap-szekcio"
-        data-nap="Hétfő"
-      >
-
-        <div class="nap-cim">
-          HÉTFŐ <small>10.05.</small>
-        </div>
-
-        <div class="menu-sor">
-          <strong>Leves:</strong>
-          Erőleves
-        </div>
-
-        <div class="menu-sor">
-          <strong>Főétel:</strong>
-          Hamburger sültkrumplival
-        </div>
-
-        <div class="menu-sor">
-          <strong>Ital:</strong>
-          Szörp (4 dl)
-        </div>
-
-        <button
-          class="nap-kerem-gomb"
-          onclick="napiRendeles('Hétfő', this)"
-        >
-          Kérem
-        </button>
-
+      <div class="nap-cim">
+        KEDD <small>10.06.</small>
       </div>
 
-
-      <!-- KEDD -->
-
-      <div
-        class="nap-szekcio"
-        data-nap="Kedd"
-      >
-
-        <div class="nap-cim">
-          KEDD <small>10.06.</small>
-        </div>
-
-        <div class="menu-sor">
-          <strong>Leves:</strong>
-          Májgombóc leves
-        </div>
-
-        <div class="menu-sor">
-          <strong>Főétel:</strong>
-          Mac and cheese baconnel
-        </div>
-
-        <div class="menu-sor">
-          <strong>Ital:</strong>
-          Szörp (4 dl)
-        </div>
-
-        <button
-          class="nap-kerem-gomb"
-          onclick="napiRendeles('Kedd', this)"
-        >
-          Kérem
-        </button>
-
+      <div class="menu-sor">
+        <strong>Leves:</strong>
+        Májgombóc leves
       </div>
 
-
-      <!-- SZERDA -->
-
-      <div
-        class="nap-szekcio"
-        data-nap="Szerda"
-      >
-
-        <div class="nap-cim">
-          SZERDA <small>10.07.</small>
-        </div>
-
-        <div class="menu-sor">
-          <strong>Leves:</strong>
-          Brokkoli krémleves levesgyönggyel
-        </div>
-
-        <div class="menu-sor">
-          <strong>Főétel:</strong>
-          Grill camembert sali édesburgonya
-        </div>
-
-        <div class="menu-sor">
-          <strong>Ital:</strong>
-          Szörp (4 dl)
-        </div>
-
-        <button
-          class="nap-kerem-gomb"
-          onclick="napiRendeles('Szerda', this)"
-        >
-          Kérem
-        </button>
-
+      <div class="menu-sor">
+        <strong>Főétel:</strong>
+        Mac and cheese baconnel
       </div>
 
-
-      <!-- CSÜTÖRTÖK -->
-
-      <div
-        class="nap-szekcio"
-        data-nap="Csütörtök"
-      >
-
-        <div class="nap-cim">
-          CSÜTÖRTÖK <small>10.08.</small>
-        </div>
-
-        <div class="menu-sor">
-          <strong>Leves:</strong>
-          Paradicsomleves betűtésztával
-        </div>
-
-        <div class="menu-sor">
-          <strong>Főétel:</strong>
-          Nuggets sültkrumplival
-        </div>
-
-        <div class="menu-sor">
-          <strong>Ital:</strong>
-          Szörp (4 dl)
-        </div>
-
-        <button
-          class="nap-kerem-gomb"
-          onclick="napiRendeles('Csütörtök', this)"
-        >
-          Kérem
-        </button>
-
+      <div class="menu-sor">
+        <strong>Ital:</strong>
+        Szörp (4 dl)
       </div>
 
-
-      <!-- PÉNTEK -->
-
-      <div
-        class="nap-szekcio"
-        data-nap="Péntek"
+      <button
+        class="nap-kerem-gomb"
+        onclick="napiRendeles('Kedd', this)"
       >
+        Kérem
+      </button>
 
-        <div class="nap-cim">
-          PÉNTEK <small>10.09.</small>
-        </div>
-
-        <div class="menu-sor">
-          <strong>Főétel:</strong>
-          Gyros tál
-        </div>
-
-        <div class="menu-opcio">
-
-          <label>
-
-            <input
-              class="csipos-check"
-              type="checkbox"
-              id="csiposP"
-            >
-
-            Csípős
-
-          </label>
-
-        </div>
+    </div>
 
 
-        <div class="menu-sor">
-          <strong>Desszert:</strong>
-          Palacsinta (2 db)
-        </div>
+    <!-- SZERDA -->
+
+    <div
+      class="nap-szekcio"
+      data-nap="Szerda"
+    >
+
+      <div class="nap-cim">
+        SZERDA <small>10.07.</small>
+      </div>
+
+      <div class="menu-sor">
+        <strong>Leves:</strong>
+        Brokkoli krémleves levesgyönggyel
+      </div>
+
+      <div class="menu-sor">
+        <strong>Főétel:</strong>
+        Grill camembert sali édesburgonya
+      </div>
+
+      <div class="menu-sor">
+        <strong>Ital:</strong>
+        Szörp (4 dl)
+      </div>
+
+      <button
+        class="nap-kerem-gomb"
+        onclick="napiRendeles('Szerda', this)"
+      >
+        Kérem
+      </button>
+
+    </div>
 
 
-        <div class="menu-opcio">
+    <!-- CSÜTÖRTÖK -->
 
-          <select
-            id="palacsintaP"
-            class="palacsinta-select"
+    <div
+      class="nap-szekcio"
+      data-nap="Csütörtök"
+    >
+
+      <div class="nap-cim">
+        CSÜTÖRTÖK <small>10.08.</small>
+      </div>
+
+      <div class="menu-sor">
+        <strong>Leves:</strong>
+        Paradicsomleves betűtésztával
+      </div>
+
+      <div class="menu-sor">
+        <strong>Főétel:</strong>
+        Nuggets sültkrumplival
+      </div>
+
+      <div class="menu-sor">
+        <strong>Ital:</strong>
+        Szörp (4 dl)
+      </div>
+
+      <button
+        class="nap-kerem-gomb"
+        onclick="napiRendeles('Csütörtök', this)"
+      >
+        Kérem
+      </button>
+
+    </div>
+
+
+    <!-- PÉNTEK -->
+
+    <div
+      class="nap-szekcio"
+      data-nap="Péntek"
+    >
+
+      <div class="nap-cim">
+        PÉNTEK <small>10.09.</small>
+      </div>
+
+      <div class="menu-sor">
+        <strong>Főétel:</strong>
+        Gyros tál
+      </div>
+
+      <div class="menu-opcio">
+
+        <label>
+
+          <input
+            class="csipos-check"
+            type="checkbox"
+            id="csiposP"
           >
 
-            <option value="">
-              Válassz ízt...
-            </option>
+          Csípős
 
-            <option value="áfonyalekváros">
-              áfonyalekváros
-            </option>
-
-            <option value="baracklekváros">
-              baracklekváros
-            </option>
-
-            <option value="kakaós">
-              kakaós
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="menu-sor">
-          <strong>Ital:</strong>
-          Szörp (4 dl)
-        </div>
-
-
-        <button
-          class="nap-kerem-gomb"
-          onclick="napiRendeles('Péntek', this)"
-        >
-          Kérem
-        </button>
+        </label>
 
       </div>
 
+
+      <div class="menu-sor">
+        <strong>Desszert:</strong>
+        Palacsinta (2 db)
+      </div>
+
+
+      <div class="menu-opcio">
+
+        <select
+          id="palacsintaP"
+          class="palacsinta-select"
+        >
+
+          <option value="">
+            Válassz ízt...
+          </option>
+
+          <option value="áfonyalekváros">
+            áfonyalekváros
+          </option>
+
+          <option value="baracklekváros">
+            baracklekváros
+          </option>
+
+          <option value="kakaós">
+            kakaós
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="menu-sor">
+        <strong>Ital:</strong>
+        Szörp (4 dl)
+      </div>
+
+
+      <button
+        class="nap-kerem-gomb"
+        onclick="napiRendeles('Péntek', this)"
+      >
+        Kérem
+      </button>
+
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 </div>
 
 
-<!-- =========================
-     ALSÓ ÖSSZESÍTŐ
-     ========================= -->
+<!-- ALSÓ ÖSSZESÍTŐ -->
 
 <div class="felugro-kosar">
 
@@ -960,17 +922,9 @@ select:disabled {
 
 <script>
 
-/* =========================================================
-   GOOGLE APPS SCRIPT CÍME
-   ========================================================= */
-
 const URL =
   "https://script.google.com/macros/s/AKfycbxlE-IAczfO4Q1CVdWKlX7VOo_h5TjEoOnor-i1iZ7RxNBovhUlNv0fmjqedKDjzfbj/exec";
 
-
-/* =========================================================
-   KOSÁR
-   ========================================================= */
 
 let kosar = {
 
@@ -985,9 +939,7 @@ let kosar = {
 let dbSzam = 0;
 
 
-/* =========================================================
-   TANÁR / DIÁK
-   ========================================================= */
+/* TANÁR / DIÁK */
 
 function kezelTanar() {
 
@@ -1012,28 +964,18 @@ function kezelTanar() {
   betu.disabled = tanar;
 
   if (tanar) {
-
     ev.value = "";
     betu.value = "";
-
   }
 
 }
 
 
-/* =========================================================
-   RENDELÉSI HATÁRIDŐ
-   ========================================================= */
+/* RENDELÉSI HATÁRIDŐ */
 
 function frissitGombok() {
 
   const most = new Date();
-
-  /*
-    Hétfő: 2026.10.05.
-    Előző hét szerda éjfél:
-    2026.09.30. 23:59:59
-  */
 
   const hatarido =
     new Date("2026-09-30T23:59:59");
@@ -1070,20 +1012,12 @@ function frissitGombok() {
 }
 
 
-/* =========================================================
-   NAPI RENDELÉS
-   ========================================================= */
+/* NAPI RENDELÉS */
 
 function napiRendeles(
   nap,
   gomb
 ) {
-
-  /*
-    Ha már ki van választva,
-    akkor a gomb újabb megnyomása
-    leveszi a napot.
-  */
 
   if (
     kosar[nap].length > 0
@@ -1108,10 +1042,8 @@ function napiRendeles(
     if (nap === "Hétfő") {
 
       tetelek = [
-
         "Erőleves",
         "Hamburger sültkrumplival"
-
       ];
 
     }
@@ -1120,10 +1052,8 @@ function napiRendeles(
     if (nap === "Kedd") {
 
       tetelek = [
-
         "Májgombóc leves",
         "Mac and cheese baconnel"
-
       ];
 
     }
@@ -1132,10 +1062,8 @@ function napiRendeles(
     if (nap === "Szerda") {
 
       tetelek = [
-
         "Brokkoli krémleves levesgyönggyel",
         "Grill camembert sali édesburgonya"
-
       ];
 
     }
@@ -1144,10 +1072,8 @@ function napiRendeles(
     if (nap === "Csütörtök") {
 
       tetelek = [
-
         "Paradicsomleves betűtésztával",
         "Nuggets sültkrumplival"
-
       ];
 
     }
@@ -1156,19 +1082,15 @@ function napiRendeles(
     if (nap === "Péntek") {
 
       tetelek = [
-
         "Gyros tál"
-
       ];
 
 
-      const csipos =
-        document.getElementById(
-          "csiposP"
-        ).checked;
-
-
-      if (csipos) {
+      if (
+        document
+          .getElementById("csiposP")
+          .checked
+      ) {
 
         tetelek.push(
           "Csípős"
@@ -1178,9 +1100,9 @@ function napiRendeles(
 
 
       const iz =
-        document.getElementById(
-          "palacsintaP"
-        ).value;
+        document
+          .getElementById("palacsintaP")
+          .value;
 
 
       if (!iz) {
@@ -1230,20 +1152,16 @@ function napiRendeles(
 }
 
 
-/* =========================================================
-   ÖSSZESÍTŐ
-   ========================================================= */
+/* ÖSSZESÍTŐ */
 
 function frissitOsszesito() {
 
   const napok = [
-
     "Hétfő",
     "Kedd",
     "Szerda",
     "Csütörtök",
     "Péntek"
-
   ];
 
 
@@ -1257,11 +1175,6 @@ function frissitOsszesito() {
   const alap =
     kivalasztott.length * 1400;
 
-
-  /*
-    Csak teljes 5 napos hét esetén
-    jár a 10% kedvezmény.
-  */
 
   const kedvezmeny =
     kivalasztott.length === 5
@@ -1304,20 +1217,18 @@ function frissitOsszesito() {
 
       (
         kedvezmeny
-
           ? ' <span class="kedvezmeny">(10% kedvezménnyel)</span>'
-
           : ""
       );
 
 }
 
 
-/* =========================================================
+/* =========================================
    RENDELÉS ELKÜLDÉSE
-   ========================================================= */
+   ========================================= */
 
-async function kl() {
+function kl() {
 
   const nev =
     document
@@ -1355,9 +1266,7 @@ async function kl() {
     document.getElementById("bg");
 
 
-  /* =========================
-     ELLENŐRZÉSEK
-     ========================= */
+  /* ELLENŐRZÉSEK */
 
   if (!nev) {
 
@@ -1420,9 +1329,31 @@ async function kl() {
   }
 
 
-  /* =========================
-     GOMB LETILTÁSA
-     ========================= */
+  /* PÉNTEKI PALACSINTA */
+
+  if (
+    kosar["Péntek"].length > 0
+  ) {
+
+    const iz =
+      document
+        .getElementById("palacsintaP")
+        .value;
+
+    if (!iz) {
+
+      alert(
+        "Péntekre válaszd ki a palacsinta ízét!"
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  /* GOMB */
 
   gomb.disabled = true;
 
@@ -1430,9 +1361,7 @@ async function kl() {
     "Küldés...";
 
 
-  /* =========================
-     ADATOK ÖSSZEÁLLÍTÁSA
-     ========================= */
+  /* ADATOK */
 
   const payload = {
 
@@ -1463,95 +1392,88 @@ async function kl() {
   };
 
 
-  /* =========================
-     KÜLDÉS GOOGLE APPS SCRIPTBE
-     =========================
+  /*
+    REJTETT FORMOS POST.
 
-     FONTOS:
-     text/plain-t használunk,
-     így a böngésző nem indít
-     CORS preflight kérést.
+    Ez nem fetch(), így nincs CORS
+    probléma a Google Apps Script
+    webalkalmazással.
+  */
 
-     Az Apps Scriptben továbbra is:
+  const iframe =
+    document.createElement("iframe");
 
-     JSON.parse(e.postData.contents)
+  iframe.name =
+    "rendelesFrame";
 
-     dolgozza fel az adatokat.
-     */
-
-  try {
-
-    await fetch(
-      URL,
-      {
-
-        method: "POST",
-
-        mode: "no-cors",
-
-        headers: {
-
-          "Content-Type":
-            "text/plain;charset=utf-8"
-
-        },
-
-        body:
-          JSON.stringify(payload)
-
-      }
-    );
+  iframe.style.display =
+    "none";
 
 
-    /*
-      A no-cors miatt a böngésző
-      nem engedi elolvasni az Apps Script
-      válaszát.
+  const form =
+    document.createElement("form");
 
-      Maga a POST ettől még elküldésre kerül.
-    */
+  form.method =
+    "POST";
 
-    alert(
-      "A rendelés sikeresen elküldve!"
-    );
+  form.action =
+    URL;
 
+  form.target =
+    "rendelesFrame";
 
-    /*
-      Csak sikeres küldés után
-      töltjük újra az oldalt.
-    */
-
-    location.reload();
+  form.style.display =
+    "none";
 
 
-  }
+  const input =
+    document.createElement("input");
 
-  catch (error) {
+  input.type =
+    "hidden";
 
-    console.error(
-      "Rendelésküldési hiba:",
-      error
-    );
+  input.name =
+    "payload";
 
-
-    gomb.disabled = false;
-
-    gomb.innerText =
-      "Rendelés véglegesítése";
+  input.value =
+    JSON.stringify(payload);
 
 
-    alert(
-      "Hiba történt a rendelés elküldése közben. Kérlek próbáld újra!"
-    );
+  form.appendChild(input);
 
-  }
+  document.body.appendChild(iframe);
+
+  document.body.appendChild(form);
+
+
+  /*
+    RENDELÉS KÜLDÉSE
+  */
+
+  form.submit();
+
+
+  /*
+    Kis várakozás után visszajelzés.
+  */
+
+  setTimeout(
+    function() {
+
+      alert(
+        "A rendelés sikeresen elküldve!"
+      );
+
+      location.reload();
+
+    },
+    1500
+  );
 
 }
 
 
-/* =========================================================
-   OLDAL INDÍTÁSA
-   ========================================================= */
+/* INDÍTÁS */
 
 window.addEventListener(
   "load",
